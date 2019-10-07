@@ -4,14 +4,14 @@ jobs:
    environment:
       CC_TEST_REPORTER_ID: d9d4ce26b97440224869617939950d90d2e6a597933ce56444e334fd4cf4eaf3
    docker:
-     - image: circleci/node:11.9.0
+     - image: circleci/node:12.10.0
    steps:
      - checkout
      - restore_cache: #restore the dependancy cache
          key: dependancy-cache-{{ checksum "package.json" }}
      - run:
          name: Setup Dependancies
-         command: yarn install
+         command: npm install
      - run:
          name: Setup Code Climate test-reporter
          command: |
@@ -25,5 +25,5 @@ jobs:
          name: Run Test and Coverage
          command: |
            ./cc-test-reporter before-build
-           yarn test:coverage
+           npm test:coverage
            ./cc-test-reporter after-build --exit-code $?
