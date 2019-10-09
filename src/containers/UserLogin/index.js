@@ -5,7 +5,8 @@ import * as selectors from './store/selectors';
 import { connect } from 'react-redux';
 import { loginUserRequest } from './store/actions';
 import { toast } from 'react-toastify';
-class UserLogin extends React.PureComponent {
+
+export class UserLogin extends React.PureComponent {
   state = {
     getUser: {},
     getError: {}
@@ -36,6 +37,7 @@ class UserLogin extends React.PureComponent {
 
   render() {
     const { getError } = this.props;
+    console.log(this.props, "props");
 
     return (
       <div>
@@ -48,13 +50,13 @@ class UserLogin extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
     getUser: selectors.getUser(state),
     getError: selectors.getError(state)
   };
 };
-const mapDispatchToProps = {
+export const mapDispatchToProps = {
   loginUserRequest
 };
 export default connect(
