@@ -36,7 +36,7 @@ const LoginForm = ({ handleChange, handleSubmit }) => {
                 <div className="intro-message">
                   <h1>The Green Mile</h1>
                   <h3>The leading company in the whole world.</h3>
-                  <form className="loginForm" onSubmit={handleSubmit}>
+                  <form className="loginForm" id="loginForm" onSubmit={handleSubmit}>
                     <label>UserName:</label>
                     <input
                       type="text"
