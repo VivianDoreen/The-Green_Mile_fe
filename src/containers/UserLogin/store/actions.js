@@ -1,22 +1,22 @@
-export const LOGIN_USER_REQUEST = 'LOGIN_USER_REQUEST';
-export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
-export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE';
+export const LOGIN_USER_REQUEST = "LOGIN_USER_REQUEST";
+export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
 
-export const loginUserRequest = (data) => {
+export const loginUserRequest = data => {
   return {
     type: LOGIN_USER_REQUEST,
     payload: { data }
   };
 };
 
-export const loginUserSuccess = (data) => {
+export const loginUserSuccess = data => {
   return {
     type: LOGIN_USER_SUCCESS,
     payload: data
   };
 };
 
-export const loginUserFailure = (error) => {
+export const loginUserFailure = error => {
   return {
     type: LOGIN_USER_FAILURE,
     payload: { error }

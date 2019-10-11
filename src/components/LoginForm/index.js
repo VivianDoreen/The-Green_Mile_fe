@@ -1,15 +1,21 @@
-import React from 'react';
+//react components
+import React from "react";
 
-const LoginForm = ({ handleChange, handleSubmit }) => {
+//components
+import Loader from "../Loader";
+
+const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
   return (
     <div>
       <nav
         className="navbar navbar-default navbar-fixed-top topnav"
-        role="navigation">
+        role="navigation"
+      >
         <div className="container topnav">
           <div
             className="collapse navbar-collapse"
-            id="bs-example-navbar-collapse-1">
+            id="bs-example-navbar-collapse-1"
+          >
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <a href="">Home</a>
@@ -36,7 +42,12 @@ const LoginForm = ({ handleChange, handleSubmit }) => {
                 <div className="intro-message">
                   <h1>The Green Mile</h1>
                   <h3>The leading company in the whole world.</h3>
-                  <form className="loginForm" id="loginForm" onSubmit={handleSubmit}>
+                  <p className="userErrorLogin">{errors ? errors.message : ""}</p>
+                  <form
+                    className="loginForm"
+                    id="loginForm"
+                    onSubmit={handleSubmit}
+                  >
                     <label>UserName:</label>
                     <input
                       type="text"

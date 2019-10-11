@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const AdminDetails = () => {
   return (
@@ -33,7 +33,7 @@ const AdminDetails = () => {
         </ul>
         <div class="profile-menu">
           <p>
-            Me{' '}
+            Me{" "}
             <a href="#26">
               <span class="entypo-down-open scnd-font-color"></span>
             </a>
@@ -313,7 +313,7 @@ const AdminDetails = () => {
             <li>
               <a href="#43">
                 <p class="next-days-date">
-                  <span class="day">SAT</span>{' '}
+                  <span class="day">SAT</span>{" "}
                   <span class="scnd-font-color">29/06</span>
                 </p>
                 <p class="next-days-temperature">
@@ -324,7 +324,7 @@ const AdminDetails = () => {
             <li>
               <a href="#44">
                 <p class="next-days-date">
-                  <span class="day">SUN</span>{' '}
+                  <span class="day">SUN</span>{" "}
                   <span class="scnd-font-color">30/06</span>
                 </p>
                 <p class="next-days-temperature">
@@ -335,7 +335,7 @@ const AdminDetails = () => {
             <li>
               <a href="#45">
                 <p class="next-days-date">
-                  <span class="day">MON</span>{' '}
+                  <span class="day">MON</span>{" "}
                   <span class="scnd-font-color">01/07</span>
                 </p>
                 <p class="next-days-temperature">
@@ -346,7 +346,7 @@ const AdminDetails = () => {
             <li>
               <a href="#46">
                 <p class="next-days-date">
-                  <span class="day">TUE</span>{' '}
+                  <span class="day">TUE</span>{" "}
                   <span class="scnd-font-color">02/07</span>
                 </p>
                 <p class="next-days-temperature">
@@ -357,7 +357,7 @@ const AdminDetails = () => {
             <li>
               <a href="">
                 <p class="next-days-date">
-                  <span class="day">WED</span>{' '}
+                  <span class="day">WED</span>{" "}
                   <span class="scnd-font-color">03/07</span>
                 </p>
                 <p class="next-days-temperature">
@@ -368,7 +368,7 @@ const AdminDetails = () => {
             <li>
               <a href="">
                 <p class="next-days-date">
-                  <span class="day">THU</span>{' '}
+                  <span class="day">THU</span>{" "}
                   <span class="scnd-font-color">04/07</span>
                 </p>
                 <p class="next-days-temperature">
@@ -385,7 +385,7 @@ const AdminDetails = () => {
           <div class="tweet first">
             <p>
               Ice-cream trucks only play music when out of ice-cream. Well
-              played dad. On{' '}
+              played dad. On{" "}
               <a class="tweet-link" href="#17">
                 @Quora
               </a>
@@ -399,7 +399,7 @@ const AdminDetails = () => {
           <div class="tweet">
             <p>
               We are in the process of pushing out all of the new CC apps! We
-              will tweet again once they are live{' '}
+              will tweet again once they are live{" "}
               <a class="tweet-link" href="#19">
                 #CreativeCloud
               </a>

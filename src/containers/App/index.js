@@ -1,12 +1,22 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+//react libraries
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import RegisterUsers from '../RegisterUsers';
-import UserLogin from '../UserLogin';
-import AdminPage from '../AdminPage';
+//third party libraries
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter as Router } from "react-router-dom";
+
+//components
+import RegisterUsers from "../RegisterUsers";
+import UserLogin from "../UserLogin";
+import AdminPage from "../AdminPage";
+import Packages from "../Packages";
+import ViewUsers from "../ViewUsers";
+import ViewSinglePackage from "../ViewSinglePackage";
+import PageNotFound from "./PageNotFound";
+import AddPackages from "../AddPackages";
+
 const App = () => {
   return (
     <div>
@@ -15,6 +25,11 @@ const App = () => {
           <Route path="/" exact component={UserLogin} />
           <Route path="/register" component={RegisterUsers} />
           <Route path="/admin" component={AdminPage} />
+          <Route path="/packages" component={Packages} />
+          <Route path="/viewUsers" component={ViewUsers} />
+          <Route path="/viewSinglePackage/:id" component={ViewSinglePackage} />
+          <Route path="/addPackages" component={AddPackages} />
+          <Route component={PageNotFound} />
         </Switch>
       </Router>
       <ToastContainer autoClose={3000} hideProgressBar />

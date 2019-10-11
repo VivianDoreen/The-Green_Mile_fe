@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Menu } from 'semantic-ui-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Container, Menu } from "semantic-ui-react";
+
 const Nav = () => {
   return (
-    <Container>
+    <Container className="navContainer">
       <Menu stackable>
         <Menu.Item>The Green Mile </Menu.Item>
         <Menu.Item>
@@ -15,12 +16,13 @@ const Nav = () => {
           <Link
             to="/register"
             className="navLinks"
-            style={{ color: 'cadetblue' }}>
+            style={{ color: "cadetblue" }}
+          >
             Register User
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to="/delete" className="navLinks">
+          <Link to="/viewUsers" className="navLinks">
             View Users
           </Link>
         </Menu.Item>
@@ -30,13 +32,18 @@ const Nav = () => {
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to="/register" className="navLinks">
+          <Link to="/delete" className="navLinks">
             Delete User
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/suppliers" className="navLinks">
             Suppliers
+          </Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/packages" className="navLinks">
+            Packages
           </Link>
         </Menu.Item>
       </Menu>

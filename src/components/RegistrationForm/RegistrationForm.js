@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const RegistrationForm = ({
   handleChange,
@@ -15,7 +15,8 @@ const RegistrationForm = ({
             className="logo__shape"
             width="25px"
             viewBox="0 0 634 479"
-            xmlns="http://www.w3.org/2000/svg"></svg>
+            xmlns="http://www.w3.org/2000/svg"
+          ></svg>
         </div>
         <div className="thumbnail__content text-center">
           <h1 className="heading--primary">
@@ -29,21 +30,21 @@ const RegistrationForm = ({
         <div className="signup__overlay"></div>
       </div>
       <div className="container__child signup__form">
+        <p className="userError">{error.length ? error : ""}</p>
         <form onSubmit={handleSubmit}>
-          <p className="userError">{error.length ? error : ''}</p>
           <p className="registerSuccess">
-            {Object.keys(registeredUser).length > 0
-              ? registeredUser.name + ' successfully registered'
-              : ''}
+            {Object.keys(registeredUser).length != 0
+              ? "User successfully registered"
+              : ""}
           </p>
           <div className="form-group">
-            <label htmlFor="username">Name</label>
+            <label htmlFor="email">Email</label>
             <br />
             <input
               className="form-control"
               type="text"
-              name="full_name"
-              id="full_name"
+              name="email"
+              id="email"
               value={inputvalue}
               onChange={handleChange}
               required
@@ -57,19 +58,6 @@ const RegistrationForm = ({
               type="text"
               name="username"
               id="username"
-              value={inputvalue}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <br />
-            <input
-              className="form-control"
-              type="text"
-              name="email"
-              id="email"
               value={inputvalue}
               onChange={handleChange}
               required
@@ -101,6 +89,20 @@ const RegistrationForm = ({
               required
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="username">Role</label>
+            <br />
+            <input
+              className="form-control"
+              type="text"
+              name="role"
+              id="role"
+              value={inputvalue}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
           <div className="m-t-lg">
             <ul className="list-inline">
               <li>

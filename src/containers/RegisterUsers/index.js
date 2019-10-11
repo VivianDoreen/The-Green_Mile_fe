@@ -1,15 +1,26 @@
-import React from 'react';
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import { connect } from 'react-redux';
-import * as selectors from './store/selectors';
-import { postUserRequest } from './store/actions';
-import '../../styles/components/registerUsers.scss';
-import Nav from '../../components/Nav';
+import React from "react";
+import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+import { connect } from "react-redux";
+import * as selectors from "./store/selectors";
+import { postUserRequest } from "./store/actions";
+import "../../styles/components/registerUsers.scss";
+import Nav from "../../components/Nav";
+import Logout from "../../components/Logout";
+import { toast } from "react-toastify";
+
 export class RegisterUsers extends React.Component {
   state = {
     user: {},
-    name: ''
+    name: ""
   };
+
+  componentWillMount() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("You must first login");
+      this.props.history.push("/");
+    }
+  }
   componentWillReceiveProps(nextProps) {
     const { registeredUser, error } = nextProps;
     if (error) {
@@ -18,36 +29,32 @@ export class RegisterUsers extends React.Component {
       this.setState({ registeredUser });
     }
   }
-  handleChange = (e) => {
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     });
   };
 
-  handleSubmit = (e) => {
-    const {
-      full_name,
-      username,
-      email,
-      password,
-      confirm_password
-    } = this.state;
+  handleSubmit = e => {
+    const { email, username, password, role, confirm_password } = this.state;
     e.preventDefault();
     const data = {
-      full_name,
-      username,
       email,
+      username,
       password,
+      role,
       confirm_password
     };
     this.props.postUserRequest(data);
   };
   render() {
     const { registeredUser, error } = this.props;
+
     return (
       <div>
-        {/* <Nav /> */}
+        <Logout />
+        <Nav />
         <RegistrationForm
           registeredUser={registeredUser}
           error={error}
@@ -59,7 +66,7 @@ export class RegisterUsers extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     registeredUser: selectors.getUser(state),
     error: selectors.getError(state)

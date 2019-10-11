@@ -1,31 +1,46 @@
-import React from 'react';
-import LoginForm from '../../components/LoginForm';
-import '../../styles/components/userLogin.scss';
-import * as selectors from './store/selectors';
-import { connect } from 'react-redux';
-import { loginUserRequest } from './store/actions';
-import { toast } from 'react-toastify';
+import React from "react";
+import LoginForm from "../../components/LoginForm";
+import "../../styles/components/userLogin.scss";
+import { getUser, getError } from "./store/selectors";
+import { connect } from "react-redux";
+import { loginUserRequest } from "./store/actions";
+import { toast } from "react-toastify";
+
+const jwt = require("jsonwebtoken");
 
 export class UserLogin extends React.PureComponent {
   state = {
     getUser: {},
-    getError: {}
+    getError: {},
+    isLoading: true
   };
   componentWillReceiveProps(nextProps) {
     const { getUser, getError } = nextProps;
     const { history } = this.props;
-    if (getUser) {
-      this.setState({ getUser });
-      toast.success('successfully logged in');
-      history.push('/admin');
+
+    if (Object.keys(getError).length !== 0) {
+      this.setState({ getError, isLoading: false });
+    } else if (Object.keys(getUser).length !== 0) {
+      this.setState({ getUser, isLoading: false });
+      localStorage.setItem("token", getUser.access_token);
+      const token = localStorage.getItem("token");
+      const decoded = jwt.decode(token);
+
+      if (decoded.identity.role[0] === "Admin") {
+        toast.success("successfully logged in");
+        history.push("/admin");
+      } else {
+        toast.success("successfully logged in");
+        history.push("/register");
+      }
     }
   }
-  handleChange = (e) => {
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const { username, password } = this.state;
     const data = {
@@ -33,32 +48,37 @@ export class UserLogin extends React.PureComponent {
       password
     };
     this.props.loginUserRequest(data);
+    this.setState({ loading: true });
   };
 
   render() {
-    const { getError } = this.props;
-    console.log(this.props, "props");
+    const { getError, getUser } = this.props;
+    const { isLoading } = this.state;
 
     return (
       <div>
         <LoginForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
+          onLoading={isLoading}
+          errors={getError}
         />
       </div>
     );
   }
 }
 
-export const mapStateToProps = (state) => {
+export const mapStateToProps = state => {
   return {
-    getUser: selectors.getUser(state),
-    getError: selectors.getError(state)
+    getUser: getUser(state),
+    getError: getError(state)
   };
 };
+
 export const mapDispatchToProps = {
   loginUserRequest
 };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
