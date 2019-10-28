@@ -42,7 +42,9 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                 <div className="intro-message">
                   <h1>The Green Mile</h1>
                   <h3>The leading company in the whole world.</h3>
-                  <p className="userErrorLogin">{errors ? errors.message : ""}</p>
+                  <p className="userErrorLogin">
+                    {errors ? errors.message : ""}
+                  </p>
                   <form
                     className="loginForm"
                     id="loginForm"

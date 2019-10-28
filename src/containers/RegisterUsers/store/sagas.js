@@ -10,11 +10,8 @@ export function* postUser(action) {
   try {
     const { data } = action.payload;
     const response = yield call(Api.postUsers, data);
-    console.log(response, "response");
-
     yield put(postUserSuccess(response.data.message));
   } catch (error) {
-    console.log(error.response);
     yield put(postUserFailure(error.response.data.message));
   }
 }

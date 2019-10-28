@@ -14,6 +14,14 @@ export default class Api {
     return response;
   };
 
+  static postPackages = async data => {
+    console.log(headers, "headers");
+    const response = await axios.post("/packages", data, {
+      headers: headers
+    });
+    return response;
+  };
+
   static getUser = async data => {
     const response = await axios.post("auth/login", data);
     return response;

@@ -1,3 +1,57 @@
 td {
   font-weight: 100;
 }
+
+.form-style {
+  width: 35%;
+  margin: 50px auto;
+}
+
+.form-style form {
+  margin: 0px;
+}
+
+.form-style input,
+select,
+textarea {
+  width: 80%;
+  margin-bottom: 9px;
+  padding: 10px;
+  border: 1px solid #bebebe;
+  background-color: #ffffff;
+  border-radius: 2px;
+  // box-shadow: 0.5px 1px #cccccc;
+}
+
+.form-style input,
+select,
+textarea,
+::placeholder {
+  color: #302f2f;
+}
+
+.form-style legend {
+  border-radius: 3px;
+}
+
+.form-style fieldset {
+  border-top: 2px solid #295711;
+  text-transform: uppercase;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding-top: 35px;
+  padding-bottom: 15px;
+}
+.form-style legend {
+  color: #295711;
+  font-size: 18px;
+  padding: 0 5px 0 5px;
+}
+
+.form-style button {
+  background: #295711;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #fff;
+}

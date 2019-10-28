@@ -21,67 +21,6 @@ const PackageDetails = ({ packageList }) => {
 
   return (
     <React.Fragment>
-      {/* <Feed
-        size="large"
-        style={{
-          borderBottom: "1px solid rgba(0, 0, 0, .2)",
-          paddingBottom: 10
-        }}
-      >
-        <Feed.Event>
-          <Feed.Label>
-            <Label
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 50,
-                height: 50,
-                borderRadius: 25
-              }}
-            >
-              {packageList.package_id}
-            </Label>
-          </Feed.Label>
-          <Feed.Content style={{ marginLeft: 30, color: "red" }}>
-            <Feed.Summary>{packageList.package_name}</Feed.Summary>
-            <Feed.Meta
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "flex-start"
-              }}
-            >
-              <Feed.Label
-                style={{
-                  borderRight: "1px solid rgba(0,0,0,.4)",
-                  paddingRight: 10
-                }}
-              >
-                from: &nbsp;
-                <Link to={`/us`} style={{ textTransform: "capitalize" }}>
-                  {packageList.supplier_name}
-                </Link>
-                &nbsp; to: &nbsp;
-                <Link to={`/us`} style={{ textTransform: "capitalize" }}>
-                  {packageList.recipient_name}
-                </Link>
-                &nbsp; package type: &nbsp;{packageList.package_type}
-                &nbsp; loading type: &nbsp;{packageList.loading_type_name}
-                &nbsp; delivery status: &nbsp;{packageList.delivery_status}
-                &nbsp; recipient address : &nbsp;
-                {packageList.recipient_address}
-              </Feed.Label>
-              <Link to={`/it`}>
-                <Icon name="comments outline" />
-                view Details
-              </Link>
-            </Feed.Meta>
-          </Feed.Content>
-        </Feed.Event>
-      </Feed> */}
       <Container>
         <Divider horizontal>
           <Header as="h4">

@@ -92,15 +92,16 @@ const RegistrationForm = ({
           <div className="form-group">
             <label htmlFor="username">Role</label>
             <br />
-            <input
+            <select
               className="form-control"
-              type="text"
-              name="role"
-              id="role"
-              value={inputvalue}
               onChange={handleChange}
-              required
-            />
+              name="role"
+            >
+              <option>Admin</option>
+              <option>Supplier</option>
+              <option>Recipient</option>
+              <option>Loader</option>
+            </select>
           </div>
 
           <div className="m-t-lg">

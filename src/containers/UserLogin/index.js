@@ -29,12 +29,16 @@ export class UserLogin extends React.PureComponent {
       if (decoded.identity.role[0] === "Admin") {
         toast.success("successfully logged in");
         history.push("/admin");
+      } else if (decoded.identity.role[0] === "Supplier") {
+        toast.success("successfully logged in");
+        history.push("/supplier");
       } else {
         toast.success("successfully logged in");
         history.push("/register");
       }
     }
   }
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
