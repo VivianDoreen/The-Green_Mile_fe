@@ -26,39 +26,39 @@ export const Loader = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Header One</th>
-              <th>Header Two</th>
-              <th>Header Three</th>
+              <th className="loading"></th>
+              <th className="loading"></th>
+              <th className="loading"></th>
             </tr>
           </thead>
           <tbody>
             {utils.range(0, tableRow).map(tableData => (
-              <tr>
-                <td className="loading" key={tableData}>
+              <tr key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
-                <td className="loading" key={tableData}>
+                <td className="loading">
                   <div className="bar"></div>
                 </td>
               </tr>

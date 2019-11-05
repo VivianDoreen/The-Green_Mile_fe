@@ -35,29 +35,19 @@ export class Packages extends Component {
   onPaginationChange = activePage => {
     this.setState({ activePage }, () => this.fetchPackageItems());
   };
-  getNextItemIds = () => {
+  fetchPackageItems = () => {
     const { packages } = this.props;
     const { perPage, activePage } = this.state;
     const startIndex = (activePage - 1) * perPage;
     const endIndex = startIndex + perPage;
-    const ids =
-      packages.length !== 0
-        ? packages.map(packageId => packageId.package_id)
-        : [];
-    return ids.slice(startIndex, endIndex);
-  };
+    const packageItems = packages.length !== 0 ? packages : [];
 
-  fetchPackageItems = () => {
-    const packageIds = this.getNextItemIds();
-    if (packageIds.length) {
-      this.props.action(packageIds);
-    }
+    return packageItems.slice(startIndex, endIndex);
   };
 
   render() {
     const { packages, isLoading } = this.props;
-    const ids = packages.length !== 0 ? packages.map(xx => xx.package_id) : [];
-    console.log(ids.slice(0, 10), "Packageeeeeeeees");
+    const ids = packages.length !== 0 ? packages : [];
     const { activePage, perPage } = this.state;
     return (
       <div style={{ marginBottom: "20px" }}>
@@ -67,7 +57,11 @@ export class Packages extends Component {
           {!isLoading ? (
             packages.length !== 0 ? (
               <div>
-                <PackageDetails packageList={packages} />
+                <PackageDetails
+                  packageIdices={packages}
+                  packageList={this.fetchPackageItems()}
+                />
+                <p></p>
                 <CustomPagination
                   activePage={activePage}
                   totalItems={packages.length}

@@ -47,18 +47,12 @@ class AdminPage extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state, "STATE");
-
     const { package_type_name } = this.state;
-    console.log(this.state, "PackageTypeNameFirst");
     const data = {
       package_type_name
     };
     this.props.addPackageTypeRequest(data);
-    console.log(this.state.package_type_name, "ggggggg");
     this.setState({ package_type_name: "" });
-
-    console.log(this.state, "PackageTypeName");
   };
 
   render() {

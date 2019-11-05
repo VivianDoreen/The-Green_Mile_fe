@@ -5,7 +5,9 @@ import React from "react";
 import { Icon, Container, Divider, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-const PackageDetails = ({ packageList }) => {
+const PackageDetails = ({ packageList, packageIdices }) => {
+  const packageIdexes = packageIdices;
+
   return (
     <React.Fragment>
       <Container>
@@ -18,6 +20,7 @@ const PackageDetails = ({ packageList }) => {
         <table className="ui celled table">
           <thead>
             <tr>
+              <th>No.</th>
               <th>Package name</th>
               <th>Package type</th>
               <th>Loading type</th>
@@ -32,6 +35,9 @@ const PackageDetails = ({ packageList }) => {
           <tbody>
             {packageList.map(packageDetails => (
               <tr key={packageDetails.package_id}>
+                <td data-label="package_name">
+                  {packageIdexes.indexOf(packageDetails) + 1}
+                </td>
                 <td data-label="package_name">{packageDetails.package_name}</td>
                 <td data-label="package_type">{packageDetails.package_type}</td>
                 <td data-label="loading_type">

@@ -44,7 +44,12 @@ export default class CustomPagination extends PureComponent {
     }
 
     return (
-      <React.Fragment>
+      <div
+        style={{
+          width: "30%",
+          margin: "0px auto"
+        }}
+      >
         <Pagination
           activePage={activePage}
           boundaryRange={boundaryRange}
@@ -58,7 +63,7 @@ export default class CustomPagination extends PureComponent {
           prevItem={showPreviousAndNextNav ? undefined : null}
           nextItem={showPreviousAndNextNav ? undefined : null}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }
