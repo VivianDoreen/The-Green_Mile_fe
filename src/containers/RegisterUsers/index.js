@@ -11,7 +11,8 @@ import { toast } from "react-toastify";
 export class RegisterUsers extends React.Component {
   state = {
     user: {},
-    name: ""
+    name: "",
+    email: ""
   };
 
   componentWillMount() {

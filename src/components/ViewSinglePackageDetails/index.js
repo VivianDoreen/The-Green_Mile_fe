@@ -8,13 +8,9 @@ const ViewSinglePackageDetails = ({ singlePackage }) => (
   <Fragment>
     <Container>
       <Divider horizontal>
-        <Header as="h4">
+        <Header as="h4" style={{ color: "#033822" }}>
           <Icon name="info circle" />
-          Details
-          {console.log(
-            singlePackage,
-            "singlePackagesinglePackagesinglePackage"
-          )}
+          Package Details
         </Header>
       </Divider>
 

@@ -13,15 +13,11 @@ import Nav from "../../components/Nav";
 class ViewSinglePackage extends React.Component {
   componentDidMount() {
     const package_id = this.props.match.params.id;
-    // console.log(this.props, "propsssssssss");
-
-    console.log(package_id, "package_id");
     this.props.fetchSinglePackageRequest(package_id);
   }
 
   render() {
     const { singlePackage } = this.props;
-    console.log(this.props.singlePackage, "Proppps");
 
     return (
       <Fragment>

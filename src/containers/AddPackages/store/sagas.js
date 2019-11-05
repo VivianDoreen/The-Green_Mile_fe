@@ -16,13 +16,9 @@ export default function* addPackagesWatcher() {
 export function* addPackages(action) {
   try {
     const { packages } = action.payload;
-    console.log(packages, "PackagesSaga");
     const response = yield call(Api.postPackages, packages);
-    console.log(response, "ResponsePackages");
-    yield put(postPackageSuccess(response));
+    yield put(postPackageSuccess(response.data));
   } catch (error) {
-    console.log(error.response, "error");
-
     yield put(postPackageFailure(error));
   }
 }

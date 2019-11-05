@@ -15,7 +15,6 @@ export default class Api {
   };
 
   static postPackages = async data => {
-    console.log(headers, "headers");
     const response = await axios.post("/packages", data, {
       headers: headers
     });
@@ -34,6 +33,13 @@ export default class Api {
 
   static fetchSinglePackage = async package_id => {
     const response = await axios.get(`packages/${package_id}`, {
+      headers: headers
+    });
+    return response;
+  };
+
+  static addPackageType = async packageType => {
+    const response = await axios.post("packages/packagetype", packageType, {
       headers: headers
     });
     return response;

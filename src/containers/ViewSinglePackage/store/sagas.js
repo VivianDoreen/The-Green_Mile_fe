@@ -19,8 +19,6 @@ function* viewSinglePackage(action) {
   try {
     const { package_id } = action.payload;
     const response = yield call(Api.fetchSinglePackage, package_id);
-    console.log(response.data.package, "package_idmmmmmmmmmmm");
-
     yield put(fetchSinglePackageSuccess(response.data.package[0]));
   } catch (error) {
     yield put(fetchSinglePackageFailure(error));

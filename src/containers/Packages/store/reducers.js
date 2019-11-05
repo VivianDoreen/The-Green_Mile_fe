@@ -10,7 +10,7 @@ const packageReducer = (state = initialState, action) => {
       return {
         ...initialState,
         isLoading: false,
-        packages: action.payload
+        packageList: action.payload
       };
     case types.FETCH_PACKAGES_FAILURE:
       return {
@@ -18,6 +18,20 @@ const packageReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload.error
       };
+
+    case types.ADD_PACKAGE_TYPE_REQUEST:
+      return {
+        ...initialState,
+        isLoading: true
+      };
+
+    case types.ADD_PACKAGE_TYPE_SUCCESS:
+      return {
+        ...initialState,
+        isLoading: false,
+        packageType: action.payload
+      };
+
     default:
       return state;
   }

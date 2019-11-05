@@ -1,23 +1,35 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 import {
   FETCH_PACKAGES_REQUEST,
+  ADD_PACKAGE_TYPE_REQUEST,
+  addPackageTypeSuccess,
+  addPackageTypeFailure,
   fetchPackagesSuccess,
   fetchPackagesFailure
 } from "./actions";
 
-import API from "../../../services/Api";
+import Api from "../../../services/Api";
 
 export default function* fetchPackagesWatcher() {
   yield takeLatest(FETCH_PACKAGES_REQUEST, fetchPackages);
+  yield takeLatest(ADD_PACKAGE_TYPE_REQUEST, addPackageTypeRequest);
 }
 
 export function* fetchPackages(action) {
   try {
-    const response = yield call(API.fetchPackages);
-    console.log(response, "responseAPI");
+    const response = yield call(Api.fetchPackages);
     yield put(fetchPackagesSuccess(response.data.Packages));
   } catch (error) {
-    console.log(error.response, "response");
     yield put(fetchPackagesFailure(error.response));
+  }
+}
+
+export function* addPackageTypeRequest(action) {
+  try {
+    const { packageType } = action.payload;
+    const response = yield call(Api.addPackageType, packageType);
+    yield put(addPackageTypeSuccess(response.data));
+  } catch (error) {
+    yield put(addPackageTypeFailure(error));
   }
 }

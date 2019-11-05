@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 //components
 import NavSupplier from "../../components/NavSupplier";
+import Logout from "../../components/Logout";
 
 export default class SupplierPage extends React.Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ export default class SupplierPage extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Logout />
         <NavSupplier />
       </React.Fragment>
     );

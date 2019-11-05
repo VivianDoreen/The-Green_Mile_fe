@@ -1,7 +1,10 @@
 export const initialState = {
   user: {},
   error: {},
-  isLoading: true,
-  packages: [],
-  singlePackage: {}
+  isLoading: false,
+  isLoadingMore: false,
+  packages: {},
+  packageList: [],
+  singlePackage: {},
+  packageType: {}
 };

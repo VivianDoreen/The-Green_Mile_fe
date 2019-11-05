@@ -2,28 +2,15 @@
 import React from "react";
 
 //Third party libraries
-import {
-  Feed,
-  Icon,
-  Label,
-  Container,
-  Divider,
-  Header,
-  Table
-} from "semantic-ui-react";
+import { Icon, Container, Divider, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const PackageDetails = ({ packageList }) => {
-  console.log(
-    packageList.length !== 0 ? packageList.package_id : "",
-    "packages"
-  );
-
   return (
     <React.Fragment>
       <Container>
         <Divider horizontal>
-          <Header as="h4">
+          <Header as="h4" style={{ color: "#033822" }}>
             <Icon name="info circle" />
             Package List
           </Header>
@@ -39,7 +26,7 @@ const PackageDetails = ({ packageList }) => {
               <th>Recipient name</th>
               <th>Supplier name</th>
               <th>Delivery status</th>
-              <th>View</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -65,7 +52,16 @@ const PackageDetails = ({ packageList }) => {
                 </td>
                 <td data-label="view">
                   <Link to={`/viewSinglePackage/${packageDetails.package_id}`}>
-                    View details
+                    <Icon name="eye" style={{ color: "rgb(3, 56, 34)" }} />
+                  </Link>
+                  <Link to="">
+                    <Icon name="edit" style={{ color: "rgb(3, 56, 34)" }} />
+                  </Link>
+                  <Link to="">
+                    <Icon name="add" style={{ color: "rgb(3, 56, 34)" }} />
+                  </Link>
+                  <Link to="">
+                    <Icon name="delete" style={{ color: "rgb(3, 56, 34)" }} />
                   </Link>
                 </td>
               </tr>

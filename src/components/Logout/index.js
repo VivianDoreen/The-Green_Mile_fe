@@ -1,4 +1,8 @@
+//react
 import React from "react";
+
+//scss
+import "../../styles/components/logout.scss";
 
 const Logout = () => {
   return (

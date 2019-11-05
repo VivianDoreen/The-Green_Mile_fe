@@ -5,7 +5,7 @@ import * as actions from "./actions";
 import { initialState } from "../../../store/initialState";
 
 const addPackagesReducer = (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case actions.POST_PACKAGE_REQUEST:
       return {
         ...state,

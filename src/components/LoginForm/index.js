@@ -66,7 +66,9 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                       onChange={handleChange}
                       required
                     />
-                    <button id="loginButton">LogIn</button>
+                    <button id="loginButton" style={{ cursor: "pointer" }}>
+                      LogIn
+                    </button>
                   </form>
                 </div>
               </div>

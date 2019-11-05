@@ -1,20 +1,21 @@
 //react components
 import React from "react";
 
-import { Form, Input, TextArea, Button, Select } from "semantic-ui-react";
-const genderOptions = [
-  { key: "m", text: "Male", value: "male" },
-  { key: "f", text: "Female", value: "female" },
-  { key: "o", text: "Other", value: "other" }
-];
-
-const PackageForm = ({ handleSubmit, handleChange }) => {
+const PackageForm = ({
+  handleSubmit,
+  handleChange,
+  handleDate,
+  packageResult
+}) => {
   return (
     <React.Fragment>
       <div className="form-style">
         <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Add Package</legend>
+            <p style={{ textTransform: "lowercase" }}>
+              {packageResult.message}
+            </p>
             <input
               type="text"
               name="package_name"
@@ -25,14 +26,17 @@ const PackageForm = ({ handleSubmit, handleChange }) => {
             <br />
             <select
               id="packageType"
-              name="package_type"
+              name="package_type_name"
               onChange={handleChange}
               required
             >
               <option>package type *</option>
               <option value="Cereals">Cereals</option>
-              <option value="boxing">Boxing</option>
-              <option value="debate">Debate</option>
+              <option value="Hoodies">Hoodies</option>
+              <option value="Belts">Belts</option>
+              <option value="Shoes">Shoes</option>
+              <option value="laptops">laptops</option>
+              <option value="Computer">Computer</option>
             </select>
             <br />
             <select
@@ -43,8 +47,9 @@ const PackageForm = ({ handleSubmit, handleChange }) => {
             >
               <option>loading type *</option>
               <option value="pallet">pallet</option>
-              <option value="boxing">Boxing</option>
-              <option value="debate">Debate</option>
+              <option value="roll">roll</option>
+              <option value="container">container</option>
+              <option value="box">box</option>
             </select>
             <br />
             <select
@@ -56,15 +61,23 @@ const PackageForm = ({ handleSubmit, handleChange }) => {
               <option>hub address</option>
               <option value="bugolobi">Bugolobi</option>
               <option value="kibuli">Kibuli</option>
+              <option value="namugogo">Namugogo</option>
+              <option value="kisubi">Kisubi</option>
+              <option value="nakasero">Nakasero</option>
+              <option value="wandegeya">Wandegeya</option>
             </select>
             <br />
-            <input
-              type="text"
+
+            <select
+              id="recipientName"
               name="recipient_name"
               onChange={handleChange}
-              placeholder="recipientName*"
               required
-            />
+            >
+              <option>recipient name</option>
+              <option value="Maria">Maria</option>
+              <option value="Nabulo">Nabulo</option>
+            </select>
             <br />
             <input
               type="text"
@@ -78,62 +91,24 @@ const PackageForm = ({ handleSubmit, handleChange }) => {
               type="date"
               name="delivery_date"
               onChange={handleChange}
+              onFocus={handleDate}
+              placeholder="delivery date"
               required
             />
+
             <br />
             <textarea
               rows="5"
               cols="33"
               name="delivery_description"
-              placeholder="delivery description"
+              placeholder="Description"
               onChange={handleChange}
-              required
             ></textarea>
             <br />
-            <button>Submit</button>
+            <button style={{ cursor: "pointer" }}>Submit</button>
           </fieldset>
         </form>
       </div>
-
-      {/* <div className="package_form">
-        <Form>
-          <Form.Field
-            id="form-input-control-first-name"
-            control={Input}
-            label="First name"
-            placeholder="First name"
-          />
-          <Form.Field
-            id="form-input-control-last-name"
-            control={Input}
-            label="Last name"
-            placeholder="Last name"
-          />
-          <Form.Field
-            control={Select}
-            options={genderOptions}
-            label={{
-              children: "Gender",
-              htmlFor: "form-select-control-gender"
-            }}
-            placeholder="Gender"
-            search
-            searchInput={{ id: "form-select-control-gender" }}
-          />
-          <Form.Field
-            id="form-textarea-control-opinion"
-            control={TextArea}
-            label="Opinion"
-            placeholder="Opinion"
-          />
-          <Form.Field
-            id="form-button-control-public"
-            control={Button}
-            content="Confirm"
-            label="Label with htmlFor"
-          />
-        </Form>
-      </div> */}
     </React.Fragment>
   );
 };

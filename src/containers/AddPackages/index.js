@@ -27,14 +27,16 @@ export class AddPackages extends React.Component {
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-    console.log(e.target.value, "Change");
   };
 
+  handleDate = e => {
+    e.target.type = "date";
+  };
   handleSubmit = e => {
     e.preventDefault();
     const {
       package_name,
-      package_type,
+      package_type_name,
       delivery_description,
       loading_type_name,
       hub_address,
@@ -45,7 +47,7 @@ export class AddPackages extends React.Component {
 
     const data = {
       package_name,
-      package_type,
+      package_type_name,
       delivery_description,
       loading_type_name,
       hub_address,
@@ -56,6 +58,7 @@ export class AddPackages extends React.Component {
     this.props.postPackageRequest(data);
   };
   render() {
+    const { addedPackage } = this.props;
     return (
       <React.Fragment>
         <Logout />
@@ -63,6 +66,8 @@ export class AddPackages extends React.Component {
         <PackageForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
+          handleDate={this.handleDate}
+          packageResult={addedPackage}
         />
       </React.Fragment>
     );
@@ -71,7 +76,8 @@ export class AddPackages extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    addedPackage: selectors.getPackage(state)
+    addedPackage: selectors.getPackage(state),
+    packageError: selectors.getError(state)
   };
 };
 
