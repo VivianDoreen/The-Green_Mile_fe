@@ -17,6 +17,7 @@ export default function* fetchPackagesWatcher() {
 
 export function* fetchPackages(action) {
   try {
+    console.log(localStorage.getItem('token'), 'inSagas');
     const response = yield call(Api.fetchPackages);
     yield put(fetchPackagesSuccess(response.data.Packages));
   } catch (error) {

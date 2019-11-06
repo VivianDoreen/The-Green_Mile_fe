@@ -12,7 +12,11 @@ export class RegisterUsers extends React.Component {
   state = {
     user: {},
     name: "",
-    email: ""
+    email: "",
+    username: "",
+    password: "",
+    role: "",
+    confirm_password: ""
   };
 
   componentWillMount() {
@@ -27,7 +31,9 @@ export class RegisterUsers extends React.Component {
     if (error) {
       this.setState({ error });
     } else {
-      this.setState({ registeredUser });
+      this.setState({
+        registeredUser
+      });
     }
   }
   handleChange = e => {
@@ -48,9 +54,27 @@ export class RegisterUsers extends React.Component {
       confirm_password
     };
     this.props.postUserRequest(data);
+    this.setState({
+      email: "",
+      username: "",
+      password: "",
+      role: "",
+      confirm_password: ""
+    });
   };
   render() {
     const { registeredUser, error } = this.props;
+    const { email, username, password, role, confirm_password } = this.state;
+    // registeredUser
+    //   ? this.setState({
+    // email: "",
+    // username: "",
+    // password: "",
+    // role: "",
+    // confirm_password: ""
+    //     })
+    //   : "";
+    // console.log(this.state, "statestate");
 
     return (
       <div>
@@ -61,6 +85,11 @@ export class RegisterUsers extends React.Component {
           error={error}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          emailValue={email}
+          usernameValue={username}
+          passwordValue={password}
+          cPasswordValue={confirm_password}
+          roleValue={role}
         />
       </div>
     );

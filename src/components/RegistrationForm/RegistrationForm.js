@@ -2,10 +2,14 @@ import React from "react";
 
 const RegistrationForm = ({
   handleChange,
-  inputvalue,
   handleSubmit,
   error,
-  registeredUser
+  registeredUser,
+  emailValue,
+  usernameValue,
+  passwordValue,
+  cPasswordValue,
+  roleValue
 }) => {
   return (
     <div className="signup__container">
@@ -45,7 +49,7 @@ const RegistrationForm = ({
               type="text"
               name="email"
               id="email"
-              value={inputvalue}
+              value={emailValue}
               onChange={handleChange}
               required
             />
@@ -58,7 +62,7 @@ const RegistrationForm = ({
               type="text"
               name="username"
               id="username"
-              value={inputvalue}
+              value={usernameValue}
               onChange={handleChange}
               required
             />
@@ -71,7 +75,7 @@ const RegistrationForm = ({
               type="password"
               name="password"
               id="password"
-              value={inputvalue}
+              value={passwordValue}
               onChange={handleChange}
               required
             />
@@ -84,7 +88,7 @@ const RegistrationForm = ({
               type="password"
               name="confirm_password"
               id="passwordRepeat"
-              value={inputvalue}
+              value={cPasswordValue}
               onChange={handleChange}
               required
             />
@@ -95,8 +99,10 @@ const RegistrationForm = ({
             <select
               className="form-control"
               onChange={handleChange}
+              value={roleValue}
               name="role"
             >
+              <option>Select role</option>
               <option>Admin</option>
               <option>Supplier</option>
               <option>Recipient</option>

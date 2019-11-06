@@ -29,11 +29,14 @@ class AdminPage extends React.Component {
 
   componentWillMount() {
     const token = localStorage.getItem("token");
+    console.log(token, "token");
+
     if (!token) {
       toast.error("You must first login");
       this.props.history.push("/");
     }
     this.props.fetchPackagesRequest();
+
   }
 
   togglePopup = () => {
