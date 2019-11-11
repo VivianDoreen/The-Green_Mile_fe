@@ -1,0 +1,11 @@
+  
+{
+    "name": "greenmile-react",
+    "description": "Green mile application for door to door delivery",
+    "scripts": {},
+    "env": {},
+    "formation": {},
+    "addons": [],
+    "buildpacks": [],
+    "stack": "heroku-18"
+  }
