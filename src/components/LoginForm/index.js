@@ -56,7 +56,6 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                       name="username"
                       className="inputUserName"
                       onChange={handleChange}
-                      required
                     />
                     <label>Password:</label>
                     <input
@@ -64,7 +63,6 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                       name="password"
                       className="inputUserName"
                       onChange={handleChange}
-                      required
                     />
                     <button id="loginButton" style={{ cursor: "pointer" }}>
                       LogIn

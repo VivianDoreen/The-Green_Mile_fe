@@ -15,6 +15,8 @@ export function* loginUser(action) {
     const response = yield call(Api.getUser, data);
     yield put(loginUserSuccess(response));
   } catch (error) {
+    console.log(error, "ERROR");
+
     yield put(loginUserFailure(error.response.data));
   }
 }

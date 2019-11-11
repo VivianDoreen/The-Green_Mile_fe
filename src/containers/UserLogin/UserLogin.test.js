@@ -18,11 +18,13 @@ describe("User login", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(<UserLogin {...defaultProps} />);
+    jest.spyOn(wrapper.instance(), "handleSubmit");
   });
 
   it("user login should render", () => expect(wrapper).toMatchSnapshot());
 
   it("should capture username correctly onChange", () => {
+    // console.log(wrapper.debug(), 'GHJHGHJHHJHHJ');
     const input = wrapper.find("input").at(0);
     input.instance().value = "nabulo";
     input.simulate("change");
@@ -30,11 +32,12 @@ describe("User login", () => {
   });
 
   it("should submit form", () => {
-    const loginForm = wrapper.find(".loginForm");
+    const loginForm = wrapper.find("#loginForm");
+
     const e = {
       preventDefault: jest.fn()
     };
-    wrapper.instance().handleSubmit(e);
-    expect(defaultProps.loginUserRequest).toHaveBeenCalled();
+    loginForm.simulate("submit", e);
+    expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
   });
 });

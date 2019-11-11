@@ -14,7 +14,7 @@ export class UserLogin extends React.PureComponent {
     getError: {},
     isLoading: true
   };
-  componentWillReceiveProps(nextProps) {
+  coponentWillReceiveProps(nextProps) {
     const { getUser, getError } = nextProps;
     const { history } = this.props;
 

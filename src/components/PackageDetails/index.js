@@ -1,9 +1,12 @@
-//Components
+//react
 import React from "react";
 
-//Third party libraries
+//third party libraries
 import { Icon, Container, Divider, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+
+//components
+import Sort from "../Sort";
 
 const PackageDetails = ({ packageList, packageIdices }) => {
   const packageIdexes = packageIdices;
@@ -11,12 +14,12 @@ const PackageDetails = ({ packageList, packageIdices }) => {
   return (
     <React.Fragment>
       <Container>
-        <Divider horizontal>
+        {/* <Divider horizontal>
           <Header as="h4" style={{ color: "#033822" }}>
             <Icon name="info circle" />
             Package List
           </Header>
-        </Divider>
+        </Divider> */}
         <table className="ui celled table">
           <thead>
             <tr>
@@ -48,7 +51,7 @@ const PackageDetails = ({ packageList, packageIdices }) => {
                   {packageDetails.hub_address}
                 </td>
                 <td data-label="reciepient_name">
-                  {packageDetails.recipient_address}
+                  {packageDetails.recipient_name}
                 </td>
                 <td data-label="supplier_name">
                   {packageDetails.supplier_name}
@@ -58,16 +61,16 @@ const PackageDetails = ({ packageList, packageIdices }) => {
                 </td>
                 <td data-label="view">
                   <Link to={`/viewSinglePackage/${packageDetails.package_id}`}>
-                    <Icon name="eye" style={{ color: "rgb(3, 56, 34)" }} />
+                    <Icon name="eye" style={{ color: "green" }} />
                   </Link>
                   <Link to="">
-                    <Icon name="edit" style={{ color: "rgb(3, 56, 34)" }} />
+                    <Icon name="edit" style={{ color: "green" }} />
                   </Link>
                   <Link to="">
-                    <Icon name="add" style={{ color: "rgb(3, 56, 34)" }} />
+                    <Icon name="add" style={{ color: "green" }} />
                   </Link>
                   <Link to="">
-                    <Icon name="delete" style={{ color: "rgb(3, 56, 34)" }} />
+                    <Icon name="delete" style={{ color: "green" }} />
                   </Link>
                 </td>
               </tr>

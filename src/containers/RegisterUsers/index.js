@@ -65,16 +65,6 @@ export class RegisterUsers extends React.Component {
   render() {
     const { registeredUser, error } = this.props;
     const { email, username, password, role, confirm_password } = this.state;
-    // registeredUser
-    //   ? this.setState({
-    // email: "",
-    // username: "",
-    // password: "",
-    // role: "",
-    // confirm_password: ""
-    //     })
-    //   : "";
-    // console.log(this.state, "statestate");
 
     return (
       <div>
