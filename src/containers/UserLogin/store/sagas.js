@@ -13,6 +13,7 @@ export function* loginUser(action) {
   try {
     const { data } = action.payload;
     const response = yield call(Api.getUser, data);
+    console.log(response);
     yield put(loginUserSuccess(response));
   } catch (error) {
     console.log(error, "ERROR");

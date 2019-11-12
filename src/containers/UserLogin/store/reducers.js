@@ -3,13 +3,13 @@ import * as actions from "./actions";
 export const initialState = {
   user: {},
   error: {},
-  isLoading: true
+  isLoading: false
 };
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.LOGIN_USER_REQUEST:
-      return { ...state, error: {} };
+      return { ...state, error: {}, isLoading: true };
 
     case actions.LOGIN_USER_SUCCESS:
       return {
@@ -20,7 +20,12 @@ const loginReducer = (state = initialState, action) => {
       };
 
     case actions.LOGIN_USER_FAILURE:
-      return { ...state, error: action.payload.error, user: {} };
+      return {
+        ...state,
+        error: action.payload.error,
+        user: {},
+        isLoading: false
+      };
 
     default:
       return state;

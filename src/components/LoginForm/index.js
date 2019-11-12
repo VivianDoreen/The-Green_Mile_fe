@@ -2,9 +2,11 @@
 import React from "react";
 
 //components
-import Loader from "../Loader";
+import LoaderLogin from "../LoaderLogin";
 
 const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
+  console.log(onLoading, "onLoading");
+
   return (
     <div>
       <nav
@@ -41,10 +43,12 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
               <div className="col-lg-12">
                 <div className="intro-message">
                   <h1>The Green Mile</h1>
-                  <h3>The leading company in the whole world.</h3>
+                  <h3>Login</h3>
+                  <i class="fas fa-arrow-down" style={{ color: "#red" }}></i>
                   <p className="userErrorLogin">
                     {errors ? errors.message : ""}
                   </p>
+                  {onLoading ? <LoaderLogin /> : ""}
                   <form
                     className="loginForm"
                     id="loginForm"
@@ -56,6 +60,7 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                       name="username"
                       className="inputUserName"
                       onChange={handleChange}
+                      required
                     />
                     <label>Password:</label>
                     <input
@@ -63,9 +68,14 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                       name="password"
                       className="inputUserName"
                       onChange={handleChange}
+                      required
                     />
-                    <button id="loginButton" style={{ cursor: "pointer" }}>
-                      LogIn
+                    <button
+                      id="loginButton"
+                      style={{ cursor: "pointer" }}
+                      disabled={onLoading}
+                    >
+                      Login
                     </button>
                   </form>
                 </div>

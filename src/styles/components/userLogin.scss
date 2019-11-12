@@ -18,7 +18,8 @@ h6 {
 .topnav {
   font-size: 16px;
   border-bottom: 1px outset rgba(192, 192, 192, 0.5);
-  background: rgba(192, 192, 192, 0.9) !important;
+  background: #6ba701 !important;
+  // background: rgba(192, 192, 192, 0.9) !important;
   box-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -27,13 +28,15 @@ h6 {
 }
 
 .topnav ul.navbar-nav li a {
-  color: #000;
+  color: #ffffff;
   float: left;
   margin-left: 6px;
   padding: 6px;
   border-radius: 3px;
   align-content: center;
   text-decoration: none;
+  // border: 1px solid #000000;
+  margin-top: 5px;
 }
 
 .topnav ul.navbar-nav li a:hover,
@@ -61,8 +64,7 @@ h6 {
 /*top background*/
 .intro-header {
   text-align: center;
-  background: url("https://40.media.tumblr.com/1b916597d3e174399cb7adadddb66ede/tumblr_nt5uk4psl31ud7rr3o1_1280.jpg")
-    no-repeat center center fixed;
+  background: url("../../images/tumblr_nt5uk4psl31ud7rr3o1_1280-editedv1.png");
   background-size: cover;
   height: 855px;
 }
@@ -83,7 +85,8 @@ h6 {
   margin-top: -50px;
   text-shadow: 2px 1px 2px #000;
   font-size: 5em;
-  color: rgb(1, 41, 1);
+  color: #ebe6e6;
+  // color: rgb(1, 41, 1);
 }
 
 .intro-divider {
@@ -95,7 +98,7 @@ h6 {
 /*small header*/
 .intro-message > h3 {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-  color: rgb(167, 164, 164);
+  color: #cccccc;
   // font-size: 2em;
 }
 
@@ -395,12 +398,13 @@ h2.connect {
 
 footer {
   padding: 50px 0;
-  background: rgba(192, 192, 192, 0.9);
+  background: #6ba701;
 }
 
 p.copyright {
   margin: 15px 0 0;
   text-align: center;
+  color: #ffffff;
 }
 
 .loginForm {
@@ -431,11 +435,17 @@ label {
   margin-left: 5px;
   border-radius: 3px;
   font-weight: 400;
+  border: 1px solid #dddddd;
 }
 
 #loginButton:focus {
   cursor: pointer;
   outline: none;
+}
+#loginButton:disabled {
+  border: 1px solid #cccccc;
+  background-color: #cccccc;
+  color: #ffffff;
 }
 .userErrorLogin {
   color: orangered;

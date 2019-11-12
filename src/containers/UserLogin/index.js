@@ -1,20 +1,31 @@
+//react
 import React from "react";
-import LoginForm from "../../components/LoginForm";
-import "../../styles/components/userLogin.scss";
-import { getUser, getError } from "./store/selectors";
+
+//third party libraries
 import { connect } from "react-redux";
-import { loginUserRequest } from "./store/actions";
 import { toast } from "react-toastify";
+
+//scss
+import "../../styles/components/userLogin.scss";
+
+//selectors
+import { getUser, getError, getIsLoading } from "./store/selectors";
+
+//actions
+import { loginUserRequest } from "./store/actions";
+
+//components
+import LoginForm from "../../components/LoginForm";
+import LoaderLogin from "../../components/LoaderLogin";
 
 const jwt = require("jsonwebtoken");
 
 export class UserLogin extends React.PureComponent {
   state = {
     getUser: {},
-    getError: {},
-    isLoading: true
+    getError: {}
   };
-  coponentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     const { getUser, getError } = nextProps;
     const { history } = this.props;
 
@@ -24,6 +35,7 @@ export class UserLogin extends React.PureComponent {
       this.setState({ getUser, isLoading: false });
       localStorage.setItem("token", getUser.access_token);
       const token = localStorage.getItem("token");
+
       const decoded = jwt.decode(token);
 
       if (decoded.identity.role[0] === "Admin") {
@@ -56,7 +68,7 @@ export class UserLogin extends React.PureComponent {
   };
 
   render() {
-    const { getError, getUser } = this.props;
+    const { getError, getUser, getIsLoading } = this.props;
     const { isLoading } = this.state;
 
     return (
@@ -64,7 +76,7 @@ export class UserLogin extends React.PureComponent {
         <LoginForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
-          onLoading={isLoading}
+          onLoading={getIsLoading}
           errors={getError}
         />
       </div>
@@ -75,7 +87,8 @@ export class UserLogin extends React.PureComponent {
 export const mapStateToProps = state => {
   return {
     getUser: getUser(state),
-    getError: getError(state)
+    getError: getError(state),
+    getIsLoading: getIsLoading(state)
   };
 };
 

@@ -1,9 +1,10 @@
 //react
 import React from "react";
 
-//scss
-import "../../styles/components/loader.scss";
-// export const Loader = () => <div className="lds-dual-ring" />;
+//third party libraries
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
+
 export const Loader = () => {
   const utils = {
     //create an array of numbers between min and max (edges included)
@@ -19,52 +20,100 @@ export const Loader = () => {
 
   return (
     <React.Fragment>
-      <div className="headline">
-        <h1>Table Skeleton Loader</h1>
+      <div style={{ float: "right", marginBottom: "15px" }}>
+        <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+          <p>
+            <Skeleton width={100} height={25} />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Skeleton width={100} height={25} />
+          </p>
+        </SkeletonTheme>
       </div>
-      <div className="tableWrapper">
-        <table className="table">
-          <thead>
+
+      <table>
+        <tbody>
+          {utils.range(0, tableRow).map(tableData => (
             <tr>
-              <th className="loading"></th>
-              <th className="loading"></th>
-              <th className="loading"></th>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
+              <td style={{ border: "1px solid #ccc" }}>
+                <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+                  <p>
+                    <Skeleton width={107} height={25} />
+                  </p>
+                </SkeletonTheme>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {utils.range(0, tableRow).map(tableData => (
-              <tr key={tableData}>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-                <td className="loading">
-                  <div className="bar"></div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
+      <div style={{ marginLeft: "400px", marginTop: "10px" }}>
+        <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
+          <p>
+            <Skeleton width={300} height={25} />
+          </p>
+        </SkeletonTheme>
       </div>
     </React.Fragment>
   );

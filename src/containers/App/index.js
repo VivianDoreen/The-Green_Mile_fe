@@ -26,9 +26,9 @@ const App = () => {
           <Route path="/" exact component={UserLogin} />
           <Route path="/register" component={RegisterUsers} />
           <Route path="/admin" component={AdminPage} />
-          <Route path="/packages" component={Packages} />
+          <Route path="/packages" exact component={Packages} />
           <Route path="/viewUsers" component={ViewUsers} />
-          <Route path="/viewSinglePackage/:id" component={ViewSinglePackage} />
+          <Route path="/packages/:id" component={ViewSinglePackage} />
           <Route path="/addPackages" component={AddPackages} />
           <Route path="/supplier" component={SupplierPage} />
           <Route component={PageNotFound} />

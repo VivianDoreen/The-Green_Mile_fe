@@ -60,7 +60,7 @@ const PackageDetails = ({ packageList, packageIdices }) => {
                   {packageDetails.delivery_status}
                 </td>
                 <td data-label="view">
-                  <Link to={`/viewSinglePackage/${packageDetails.package_id}`}>
+                  <Link to={`/packages/${packageDetails.package_id}`}>
                     <Icon name="eye" style={{ color: "green" }} />
                   </Link>
                   <Link to="">
