@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "index_buddle.js"
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -41,7 +41,7 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: "./dist",
+    contentBase: path.join(__dirname, "dist"),
     hot: true,
     historyApiFallback: true
   }

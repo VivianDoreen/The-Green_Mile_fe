@@ -36,7 +36,6 @@ class AdminPage extends React.Component {
       this.props.history.push("/");
     }
     this.props.fetchPackagesRequest();
-
   }
 
   togglePopup = () => {

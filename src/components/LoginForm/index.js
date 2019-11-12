@@ -6,9 +6,12 @@ import LoaderLogin from "../LoaderLogin";
 
 const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
   console.log(onLoading, "onLoading");
-
+  const loginStyle = {
+    backgroundColor: "#2d4615",
+    border: "1px solid #2d4615"
+  };
   return (
-    <div>
+    <div style={loginStyle}>
       <nav
         className="navbar navbar-default navbar-fixed-top topnav"
         role="navigation"
@@ -43,41 +46,52 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
               <div className="col-lg-12">
                 <div className="intro-message">
                   <h1>The Green Mile</h1>
-                  <h3>Login</h3>
-                  <i class="fas fa-arrow-down" style={{ color: "#red" }}></i>
-                  <p className="userErrorLogin">
-                    {errors ? errors.message : ""}
-                  </p>
-                  {onLoading ? <LoaderLogin /> : ""}
-                  <form
-                    className="loginForm"
-                    id="loginForm"
-                    onSubmit={handleSubmit}
+                  <div
+                    style={{
+                      width: "45%",
+                      backgroundColor: "#0B3103",
+                      margin: "0 auto",
+                      padding: "30px 0 30px 0",
+                      borderRadius: "5px"
+                    }}
                   >
-                    <label>UserName:</label>
-                    <input
-                      type="text"
-                      name="username"
-                      className="inputUserName"
-                      onChange={handleChange}
-                      required
-                    />
-                    <label>Password:</label>
-                    <input
-                      type="password"
-                      name="password"
-                      className="inputUserName"
-                      onChange={handleChange}
-                      required
-                    />
-                    <button
-                      id="loginButton"
-                      style={{ cursor: "pointer" }}
-                      disabled={onLoading}
-                    >
+                    <h3 style={{ color: "#96B787", marginBottom: "-30px" }}>
                       Login
-                    </button>
-                  </form>
+                    </h3>
+                    <p className="userErrorLogin">
+                      {errors ? errors.message : ""}
+                    </p>
+                    <p>{onLoading ? <LoaderLogin /> : ""}</p>
+                    <form
+                      className="loginForm"
+                      id="loginForm"
+                      onSubmit={handleSubmit}
+                    >
+                      <label>UserName:</label>
+                      <input
+                        type="text"
+                        name="username"
+                        className="inputUserName"
+                        onChange={handleChange}
+                        required
+                      />
+                      <label>Password:</label>
+                      <input
+                        type="password"
+                        name="password"
+                        className="inputUserName"
+                        onChange={handleChange}
+                        required
+                      />
+                      <button
+                        id="loginButton"
+                        style={{ cursor: "pointer" }}
+                        disabled={onLoading}
+                      >
+                        Login
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

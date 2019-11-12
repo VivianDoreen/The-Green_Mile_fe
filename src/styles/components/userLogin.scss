@@ -66,24 +66,19 @@ h6 {
   text-align: center;
   background: url("../../images/tumblr_nt5uk4psl31ud7rr3o1_1280-editedv1.png");
   background-size: cover;
-  height: 855px;
-}
-
-.bg-overlay {
-  background: rgba(0, 0, 0, 0.3);
-  height: 855px;
+  height: 655px;
 }
 
 .intro-message {
   position: relative;
-  padding-top: 20%;
+  padding-top: 15%;
   padding-bottom: 20%;
 }
 
 /*Big header*/
 .intro-message > h1 {
   margin-top: -50px;
-  text-shadow: 2px 1px 2px #000;
+  text-shadow: 2px 1px 2px #0b3103;
   font-size: 5em;
   color: #ebe6e6;
   // color: rgb(1, 41, 1);
@@ -100,6 +95,7 @@ h6 {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
   color: #cccccc;
   // font-size: 2em;
+  border: "1px solid blue";
 }
 
 @media (max-width: 767px) {
@@ -417,13 +413,15 @@ label {
   font-weight: 100;
   text-shadow: 2px 1px 2px #000;
   color: rgb(250, 245, 244);
+  padding-left: 10px;
+  margin-left: 0px;
 }
 
 .inputUserName {
   border: 0px;
   border-radius: 3px;
   padding: 5px;
-  margin: 5px;
+  margin-left: -80px;
 }
 
 .inputUserName:focus {
@@ -432,7 +430,7 @@ label {
 
 #loginButton {
   padding: 5px 10px 5px 10px;
-  margin-left: 5px;
+  margin: 20px 0 0 5px;
   border-radius: 3px;
   font-weight: 400;
   border: 1px solid #dddddd;
@@ -443,10 +441,14 @@ label {
   outline: none;
 }
 #loginButton:disabled {
-  border: 1px solid #cccccc;
-  background-color: #cccccc;
+  border: 1px solid #6ba701;
+  background-color: #6ba701;
   color: #ffffff;
 }
 .userErrorLogin {
-  color: orangered;
+  position: absolute;
+  top: 325px;
+  left: 600px;
+  color: red;
+  text-align: center;
 }
