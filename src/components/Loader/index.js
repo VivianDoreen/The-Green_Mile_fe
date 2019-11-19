@@ -4,7 +4,6 @@ import React from "react";
 //third party libraries
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-
 export const Loader = () => {
   const utils = {
     //create an array of numbers between min and max (edges included)
@@ -37,70 +36,70 @@ export const Loader = () => {
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>
               <td style={{ border: "1px solid #ccc" }}>
                 <SkeletonTheme color="#cccccc" highlightColor="#e0e0e0">
                   <p>
-                    <Skeleton width={107} height={25} />
+                    <Skeleton width={105} height={25} />
                   </p>
                 </SkeletonTheme>
               </td>

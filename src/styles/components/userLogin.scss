@@ -16,27 +16,29 @@ h6 {
 }
 
 .topnav {
-  font-size: 16px;
+  border: 1px solid #6ba701;
+  // font-size: 16px;
   border-bottom: 1px outset rgba(192, 192, 192, 0.5);
   background: #6ba701 !important;
-  // background: rgba(192, 192, 192, 0.9) !important;
   box-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+  height: 40px;
 }
 
 .topnav ul.navbar-nav li {
   list-style-type: none;
+  font-size: 16px;
 }
 
 .topnav ul.navbar-nav li a {
   color: #ffffff;
   float: left;
   margin-left: 6px;
-  padding: 6px;
+  padding: 3px;
+  margin-top: -10px;
   border-radius: 3px;
   align-content: center;
   text-decoration: none;
-  // border: 1px solid #000000;
-  margin-top: 5px;
+  // margin-top: 5px;
 }
 
 .topnav ul.navbar-nav li a:hover,
@@ -64,7 +66,7 @@ h6 {
 /*top background*/
 .intro-header {
   text-align: center;
-  background: url("../../images/tumblr_nt5uk4psl31ud7rr3o1_1280-editedv1.png");
+  background: url("../../images/tumblr_nt5uk4psl31ud7rr3o1_1280Edited-color-overlay.png");
   background-size: cover;
   height: 655px;
 }
@@ -77,11 +79,12 @@ h6 {
 
 /*Big header*/
 .intro-message > h1 {
-  margin-top: -50px;
+  position: absolute;
+  top: 10px;
+  left: 50px;
   text-shadow: 2px 1px 2px #0b3103;
-  font-size: 5em;
+  font-size: 2.2em;
   color: #ebe6e6;
-  // color: rgb(1, 41, 1);
 }
 
 .intro-divider {
@@ -393,7 +396,7 @@ h2.connect {
 }
 
 footer {
-  padding: 50px 0;
+  padding: 3px 0 5px 0;
   background: #6ba701;
 }
 
@@ -409,19 +412,20 @@ p.copyright {
 
 label {
   text-transform: capitalize !important;
-  color: #ffffff;
-  font-weight: 100;
-  text-shadow: 2px 1px 2px #000;
-  color: rgb(250, 245, 244);
+  color: #000000;
+  // font-weight: 100;
+  // text-shadow: 2px 1px 2px #000;
   padding-left: 10px;
   margin-left: 0px;
 }
 
 .inputUserName {
+  width: 150px;
   border: 0px;
   border-radius: 3px;
-  padding: 5px;
+  padding: 3px 4px;
   margin-left: -80px;
+  background: #b6dcae;
 }
 
 .inputUserName:focus {
@@ -429,11 +433,17 @@ label {
 }
 
 #loginButton {
-  padding: 5px 10px 5px 10px;
+  background-color: #000000; /* Green */
+  border: none;
+  color: #b6dcae;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
   margin: 20px 0 0 5px;
-  border-radius: 3px;
-  font-weight: 400;
-  border: 1px solid #dddddd;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 #loginButton:focus {
@@ -442,13 +452,15 @@ label {
 }
 #loginButton:disabled {
   border: 1px solid #6ba701;
-  background-color: #6ba701;
+  background-color: #000000;
   color: #ffffff;
 }
 .userErrorLogin {
   position: absolute;
-  top: 325px;
-  left: 600px;
-  color: red;
+  top: 210px;
+  left: 380px;
+  color: maroon;
+  font-weight: bold;
   text-align: center;
+  font-size: 16px;
 }

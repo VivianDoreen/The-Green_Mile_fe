@@ -17,6 +17,7 @@ import ViewSinglePackage from "../ViewSinglePackage";
 import PageNotFound from "./PageNotFound";
 import AddPackages from "../AddPackages";
 import SupplierPage from "../SupplierPage";
+import GeneralLayout from "../../components/GeneralLayout";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/packages/:id" component={ViewSinglePackage} />
           <Route path="/addPackages" component={AddPackages} />
           <Route path="/supplier" component={SupplierPage} />
+          <Route path="/layout" component={GeneralLayout} />
           <Route component={PageNotFound} />
         </Switch>
       </Router>

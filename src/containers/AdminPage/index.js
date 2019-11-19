@@ -6,6 +6,9 @@ import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import Popup from "reactjs-popup";
 
+//scss
+import "../../styles/components/generalLayout.scss";
+
 //selectors
 import * as selectors from "../Packages/store/selectors";
 
@@ -20,6 +23,8 @@ import Nav from "../../components/Nav";
 import Logout from "../../components/Logout";
 import PackageTypeForm from "../../components/PackageTypeForm";
 import Button from "../../components/Button";
+import SideMenu from "../../components/SideMenu";
+import handleSubmit, { handleChange } from "../generalMethods";
 
 class AdminPage extends React.Component {
   state = {
@@ -29,7 +34,6 @@ class AdminPage extends React.Component {
 
   componentWillMount() {
     const token = localStorage.getItem("token");
-    console.log(token, "token");
 
     if (!token) {
       toast.error("You must first login");
@@ -61,182 +65,58 @@ class AdminPage extends React.Component {
     const { disabled } = this.state;
 
     return (
-      <div>
-        <Logout />
-        <Nav />
-        <div
-          style={{
-            width: "160px",
-            marginTop: "20px",
-            marginLeft: "80px"
-          }}
-        >
-          {/* <Button
-            buttonText="Add package type"
-            togglePopup={this.togglePopup}
-            handleChange={this.handleChange}
-            getButtonName="packageType"
-          /> */}
-          <Popup
-            trigger={
-              <button
-                className="button"
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  backgroundColor: "#ffffff",
-                  marginTop: "5px",
-                  border: "none",
-                  outline: "none",
-                  cursor: "pointer"
-                }}
-              >
-                Add package type
-              </button>
-            }
-            modal
-          >
-            {close => (
-              <div className="modal">
-                <a className="close" onClick={close}>
-                  &times;
-                </a>
-                <div className="content">
-                  <div
-                    className="form-style-package-type"
-                    style={{
-                      width: "500px",
-                      backgroundColor: "white",
-                      paddingTop: "50px"
-                    }}
-                  >
-                    <form onSubmit={this.handleSubmit}>
-                      <fieldset>
-                        <legend>Add package type</legend>
-                        <p
-                          style={{ color: "green", textTransform: "lowercase" }}
-                        >
-                          {this.props.packageTypes.message}
-                        </p>
-                        <input
-                          style={{
-                            outline: "none",
-                            width: "80%",
-                            border: "1px solid #ccc"
-                          }}
-                          type="text"
-                          name="package_type_name"
-                          onChange={this.handleChange}
-                          placeholder="package type"
-                          onFocus={e => (e.target.placeholder = "")}
-                          onBlur={e =>
-                            (e.target.placeholder = this.placeHolderName)
-                          }
-                          required
-                        />
-                        <br />
-                        <button style={{ outline: "none", cursor: "pointer" }}>
-                          Submit
-                        </button>
-                      </fieldset>
-                    </form>
-                  </div>
-                  {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Atque, a nostrum. Dolorem, repellat quidem ut, minima sint vel
-                  eveniet quibusdam voluptates delectus doloremque, explicabo
-                  tempore dicta adipisci fugit amet dignissimos?
-                  <br />
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Consequatur sit commodi beatae optio voluptatum sed eius
-                  cumque, delectus saepe repudiandae explicabo nemo nam libero
-                  ad, doloribus, voluptas rem alias. Vitae? */}
-                </div>
-                {/* <div className="actions"> */}
-                {/* <Popup
-                    trigger={<button className="button"> Trigger </button>}
-                    position="top center"
-                    closeOnDocumentClick
-                  >
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Beatae magni omnis delectus nemo, maxime molestiae dolorem
-                      numquam mollitia, voluptate ea, accusamus excepturi
-                      deleniti ratione sapiente! Laudantium, aperiam doloribus.
-                      Odit, aut.
-                    </span> */}
-                {/* </Popup> */}
-                {/* <button
-                    className="button"
-                    onClick={() => {
-                      console.log("modal closed ");
-                      close();
-                    }}
-                  >
-                    close modal
-                  </button> */}
-                {/* </div> */}
-              </div>
-            )}
-          </Popup>
-          <br />
-          <Button
-            buttonText="Add loading type"
-            togglePopup={this.togglePopup}
-            handleChange={this.handleChange}
-            getButtonName="loadingType"
-            disableButton={disabled}
-          />
+      <div id="grid-container">
+        <div className="childOne">
+          <Logout />
+          <Nav />
         </div>
-        <div
-          style={{
-            width: "200px",
-            height: "200px",
-            border: "1px solid #cccccc",
-            marginTop: "-80px",
-            marginLeft: "300px",
-            backgroundColor: "#ffffff",
-            borderRadius: "5px"
-          }}
-        >
-          <p
-            style={{
-              marginTop: "5px",
-              textTransform: "uppercase",
-              textAlign: "center",
-              color: "#033822",
-              fontSize: "27px",
-              textDecoration: "underline"
-            }}
-          >
-            Packages
-          </p>
-          <p
-            style={{
-              paddingTop: "10px",
-              marginLeft: "30px",
-              marginTop: "-25px",
-              fontSize: "18px",
-              fontWeight: "100"
-            }}
-          >
-            <b style={{ fontWeight: "bold" }}>Delivered</b> - 10
-            <br />
-            <b style={{ fontWeight: "bold" }}>Pending</b> - 20
-            <br />
-            <b style={{ fontWeight: "bold" }}>Total</b> -{" "}
-            {this.props.packages.length}
-          </p>
+        <div className="childTwo">
+          <div className="sideMenu">
+            <SideMenu
+              handleSubmit={e => handleSubmit(e)}
+              message={this.props.packageTypes.message}
+              handleChange={this.handleChange}
+              placeHolderName={this.placeHolderName}
+              packageTypeName="package_type_name"
+              packageTypeButton="Add Package Type"
+              legend="Add Package Name"
+            />
+            <SideMenu
+              packageTypeNamo8ue="loading_type_name"
+              packageTypeButton="Add Loading Type"
+              legend="Add Loading Name"
+            />
+          </div>
         </div>
-        {this.state.showPopup ? (
-          <PackageTypeForm
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            packageTypeSuccess={this.props.packageTypes}
-            package_type_name="package_type_name"
-            placeHolderName="package type *"
-            legendName="Add Package Type"
-          />
-        ) : null}
+        <div className="childThree">
+          <div>
+            <p
+              style={{
+                marginTop: "5px",
+                textTransform: "uppercase",
+                textAlign: "center",
+                color: "#12A405",
+                fontSize: "27px",
+                textDecoration: "underline"
+              }}
+            >
+              Packages
+            </p>
+            <p>
+              <b style={{ fontWeight: "bold" }}>Delivered</b> - 10
+              <br />
+              <b style={{ fontWeight: "bold" }}>Pending</b> - 20
+              <br />
+              <b style={{ fontWeight: "bold" }}>Total</b> -{" "}
+              {this.props.packages.length}
+            </p>
+          </div>
+          <div>a</div>
+          <div>b</div>
+          <div>c</div>
+          <div>d</div>
+          <div>e</div>
+        </div>
       </div>
     );
   }
@@ -253,7 +133,4 @@ const mapDispatchToProps = {
   addPackageTypeRequest
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AdminPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);

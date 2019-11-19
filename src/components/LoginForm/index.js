@@ -3,6 +3,7 @@ import React from "react";
 
 //components
 import LoaderLogin from "../LoaderLogin";
+import Logo from "../../images/logo-8-edited-color-v2.png";
 
 const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
   console.log(onLoading, "onLoading");
@@ -45,18 +46,21 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="intro-message">
-                  <h1>The Green Mile</h1>
+                  <h1 style={{ display: "flex", alignItems: "center" }}>
+                    <img src={Logo} width="50px" /> &nbsp;The Green Mile
+                  </h1>
                   <div
                     style={{
                       width: "45%",
-                      backgroundColor: "#0B3103",
+                      backgroundColor: "#6BA701",
                       margin: "0 auto",
                       padding: "30px 0 30px 0",
-                      borderRadius: "5px"
+                      borderRadius: "5px",
+                      opacity: "1"
                     }}
                   >
-                    <h3 style={{ color: "#96B787", marginBottom: "-30px" }}>
-                      Login
+                    <h3 style={{ color: "#000000", marginBottom: "-30px" }}>
+                      LOGIN
                     </h3>
                     <p className="userErrorLogin">
                       {errors ? errors.message : ""}
@@ -83,12 +87,13 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                         onChange={handleChange}
                         required
                       />
+                      <br />
                       <button
                         id="loginButton"
                         style={{ cursor: "pointer" }}
                         disabled={onLoading}
                       >
-                        Login
+                        Submit
                       </button>
                     </form>
                   </div>

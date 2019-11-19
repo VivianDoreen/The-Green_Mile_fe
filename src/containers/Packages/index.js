@@ -4,11 +4,12 @@ import React, { Component } from "react";
 //third party libraries
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
-import { Container, Divider, Header, Icon } from "semantic-ui-react";
+import { Divider, Header, Icon } from "semantic-ui-react";
 import orderBy from "lodash/orderBy";
 
 //css
 import "../../styles/components/packages.scss";
+import "../../styles/components/generalLayout.scss";
 
 //components
 import * as selectors from "./store/selectors";
@@ -21,6 +22,7 @@ import CustomPagination from "../../components/CustomPagination";
 import Sort from "../../components/Sort";
 import Filter from "../../components/Filter/Filters";
 import DropdownSearchSelection from "../../components/DropdownSearchSelection";
+import SideMenu from "../../components/SideMenu";
 
 export class Packages extends Component {
   state = {
@@ -70,7 +72,6 @@ export class Packages extends Component {
     const { activePage, perPage, packageName, sort, value } = this.state;
     const slicedPackage = this.fetchPackageItems();
     const orderedPackages = orderBy(slicedPackage, [packageName], [sort]);
-    console.log(packages, "packages");
 
     const packageOptions = packages.map(packageItem => {
       return {
@@ -78,47 +79,28 @@ export class Packages extends Component {
         text: packageItem.package_name,
         value: packageItem.package_id
       };
-      // {
-      //   key: packageItem.supplier_name,
-      //   value: packageItem.package_id,
-      //   text: packageItem.supplier_name
-      // },
-      // {
-      //   key: packageItem.supplier_name,
-      //   value: packageItem.package_id,
-      //   text: packageItem.supplier_name
-      // },
-      // {
-      //   key: packageItem.supplier_name,
-      //   value: packageItem.package_id,
-      //   text: packageItem.supplier_name
-      // }
-      // {
-      //   key: packageItem.supplier_name,
-      //   value: packageItem.package_id,
-      //   text: packageItem.supplier_name
-      // }
-      // {
-      //   key: packageItem.supplier_name,
-      //   value: packageItem.package_id,
-      //   text: packageItem.supplier_name
-      // }
-      // {
-      //   key: packageItem.supplier_name,
-      //   value: packageItem.package_id,
-      //   text: packageItem.supplier_name
-      // }
     });
 
     return (
-      <div style={{ marginBottom: "20px" }}>
-        <Container>
+      <div id="grid-container">
+        <div className="childOne">
           <Logout />
           <Nav />
+        </div>
+        <div className="childTwo">
+          <SideMenu
+            packageTypeName="loading_type_name"
+            packageTypeButton="Add Package Type"
+          />
+          <SideMenu
+            packageTypeName="loading_type_name"
+            packageTypeButton="Add Loading Type"
+          />
+        </div>
+        <div className="packageList">
           <div
             style={{
               width: "20%",
-              marginTop: "15px",
               float: "right"
             }}
           >
@@ -154,20 +136,29 @@ export class Packages extends Component {
                   packageList={orderedPackages}
                 />
                 <p></p>
-                <CustomPagination
-                  activePage={activePage}
-                  totalItems={packages.length}
-                  perPage={perPage}
-                  onPaginationChange={this.onPaginationChange}
-                />
+                <p style={{ margin: "20px 20px" }}>
+                  <CustomPagination
+                    activePage={activePage}
+                    totalItems={packages.length}
+                    perPage={perPage}
+                    onPaginationChange={this.onPaginationChange}
+                  />
+                </p>
               </div>
             ) : (
               ""
             )
           ) : (
-            <Loader />
+            <div
+              style={{
+                width: "98%",
+                margin: "0px auto"
+              }}
+            >
+              <Loader />
+            </div>
           )}
-        </Container>
+        </div>
       </div>
     );
   }
@@ -182,7 +173,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   fetchPackagesRequest
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Packages);
+export default connect(mapStateToProps, mapDispatchToProps)(Packages);

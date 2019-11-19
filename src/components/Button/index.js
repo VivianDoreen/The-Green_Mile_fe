@@ -13,13 +13,14 @@ const Button = ({
         onClick={togglePopup}
         name={getButtonName}
         style={{
-          width: "100%",
-          padding: "10px",
-          backgroundColor: "#ffffff",
-          marginTop: "5px",
+          width: "90%",
+          backgroundColor: "#6ba701",
           border: "none",
+          color: "#ffffff",
           outline: "none",
-          cursor: "pointer"
+          cursor: "pointer",
+          marginLeft: "-20px",
+          marginBottom: "5px"
         }}
         disabled={disableButton}
       >

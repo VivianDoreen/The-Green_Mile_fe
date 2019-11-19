@@ -14,13 +14,13 @@ const PackageDetails = ({ packageList, packageIdices }) => {
   return (
     <React.Fragment>
       <Container>
-        {/* <Divider horizontal>
-          <Header as="h4" style={{ color: "#033822" }}>
-            <Icon name="info circle" />
-            Package List
-          </Header>
-        </Divider> */}
-        <table className="ui celled table">
+        <table
+          className="ui celled table"
+          style={{
+            width: "98%",
+            margin: "0px auto"
+          }}
+        >
           <thead>
             <tr>
               <th>No.</th>
