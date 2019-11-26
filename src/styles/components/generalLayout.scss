@@ -1,4 +1,4 @@
-#grid-container {
+.mainDiv {
   width: 98%;
   margin: 0 auto;
   display: grid;
@@ -6,30 +6,39 @@
   grid-gap: 1px;
 }
 
-#grid-container > div {
+.mainDiv > div {
   min-width: 0;
   min-height: 0;
   text-align: center;
 }
-.childOne {
+
+.mainDiv .grid-container-nav {
   grid-column-start: 1;
   grid-column-end: 6;
 }
-.childTwo {
+
+.mainDiv #grid-container-side-menu {
   grid-column-start: 1;
   padding-left: 10px;
   grid-column-end: 2;
   background: #6ba701;
   border-radius: 5px;
+  height: 700px;
 }
-.childThree {
-  display: flex;
-  flex-wrap: wrap;
+
+.mainDiv #main-section {
   grid-column-start: 2;
   grid-column-end: 6;
-  margin-top: -10px;
 }
-.childThree > div {
+
+.mainDiv #childThree {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  grid-column-start: 2;
+  grid-column-end: 6;
+}
+#childThree > div {
   background-color: #ffffff;
   width: 350px;
   height: 350px;
@@ -39,13 +48,7 @@
   font-size: 30px;
 }
 
-.packageList {
-  grid-column-start: 2;
-  grid-column-end: 7;
-}
-
-.sideMenu {
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
+.mainDiv .loginBar {
+  grid-column-start: 1;
+  grid-column-end: 6;
 }

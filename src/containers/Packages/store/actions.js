@@ -10,8 +10,6 @@ export const ADD_PACKAGE_TYPE_SUCCESS = "ADD_PACKAGE_TYPE_SUCCESS";
 export const ADD_PACKAGE_TYPE_FAILURE = "ADD_PACKAGE_TYPE_FAILURE";
 
 export const fetchPackagesRequest = () => {
-  console.log(localStorage.getItem('token'), 'inActions');
-
   return {
     type: FETCH_PACKAGES_REQUEST
   };

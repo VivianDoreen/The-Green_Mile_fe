@@ -13,7 +13,6 @@ import Nav from "../../components/Nav";
 class ViewSinglePackage extends React.Component {
   componentDidMount() {
     const package_id = this.props.match.params.id;
-    console.log(package_id, "package_id");
     this.props.fetchSinglePackageRequest(package_id);
   }
 
@@ -44,7 +43,4 @@ const mapDispatchToProps = {
   fetchSinglePackageRequest
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ViewSinglePackage);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewSinglePackage);

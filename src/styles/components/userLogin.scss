@@ -408,15 +408,24 @@ p.copyright {
 
 .loginForm {
   font-size: 12px (rem);
+  margin-top: 70px;
+  text-align: center;
 }
 
-label {
-  text-transform: capitalize !important;
-  color: #000000;
-  // font-weight: 100;
-  // text-shadow: 2px 1px 2px #000;
+// label {
+//   text-transform: capitalize !important;
+//   color: #000000;
+//   padding-left: 10px;
+//   margin-left: 0px;
+// }
+
+.loginForm label {
   padding-left: 10px;
   margin-left: 0px;
+  // margin: 90px;
+  font-size: 1.2rem;
+  // text-transform: uppercase;
+  color: rgb(7, 6, 6);
 }
 
 .inputUserName {
@@ -424,7 +433,6 @@ label {
   border: 0px;
   border-radius: 3px;
   padding: 3px 4px;
-  margin-left: -80px;
   background: #b6dcae;
 }
 

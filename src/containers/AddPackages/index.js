@@ -60,16 +60,14 @@ export class AddPackages extends React.Component {
   render() {
     const { addedPackage } = this.props;
     return (
-      <React.Fragment>
-        <Logout />
-        <NavSupplier />
+      <div id="main-section">
         <PackageForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           handleDate={this.handleDate}
           packageResult={addedPackage}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }
@@ -84,7 +82,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   postPackageRequest
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddPackages);
+export default connect(mapStateToProps, mapDispatchToProps)(AddPackages);

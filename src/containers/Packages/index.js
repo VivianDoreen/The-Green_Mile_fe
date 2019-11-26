@@ -33,12 +33,6 @@ export class Packages extends Component {
     value: 0
   };
   componentDidMount() {
-    this.props.fetchPackagesRequest;
-    const token = localStorage.getItem("token");
-    if (!token) {
-      toast.error("You must first login");
-      this.props.history.push("/");
-    }
     this.props.fetchPackagesRequest();
   }
   onPaginationChange = activePage => {
@@ -82,83 +76,67 @@ export class Packages extends Component {
     });
 
     return (
-      <div id="grid-container">
-        <div className="childOne">
-          <Logout />
-          <Nav />
-        </div>
-        <div className="childTwo">
-          <SideMenu
-            packageTypeName="loading_type_name"
-            packageTypeButton="Add Package Type"
-          />
-          <SideMenu
-            packageTypeName="loading_type_name"
-            packageTypeButton="Add Loading Type"
+      <div id="main-section">
+        <div
+          style={{
+            width: "20%",
+            float: "right"
+          }}
+        >
+          <DropdownSearchSelection
+            packageOptions={packageOptions}
+            onSelectChange={this.onSelectChange}
+            packageId={value}
           />
         </div>
-        <div className="packageList">
+        <div style={{ marginTop: "0px" }}>
+          <Divider horizontal>
+            <Header as="h4" style={{ color: "green" }}>
+              <Icon name="info circle" />
+              Package List
+            </Header>
+          </Divider>
+        </div>
+
+        {!isLoading ? (
+          packages.length !== 0 ? (
+            <div>
+              <div
+                style={{
+                  float: "right",
+                  margin: "10px 10px 20px 0px"
+                }}
+              >
+                <Filter onFilterChange={this.onFilterChange} />
+                <Sort onSortChange={this.onSortChange} />
+              </div>
+              <PackageDetails
+                packageIdices={packages}
+                packageList={orderedPackages}
+              />
+              <p></p>
+              <p style={{ margin: "20px 20px" }}>
+                <CustomPagination
+                  activePage={activePage}
+                  totalItems={packages.length}
+                  perPage={perPage}
+                  onPaginationChange={this.onPaginationChange}
+                />
+              </p>
+            </div>
+          ) : (
+            ""
+          )
+        ) : (
           <div
             style={{
-              width: "20%",
-              float: "right"
+              width: "98%",
+              margin: "0px auto"
             }}
           >
-            <DropdownSearchSelection
-              packageOptions={packageOptions}
-              onSelectChange={this.onSelectChange}
-              packageId={value}
-            />
+            <Loader />
           </div>
-          <div style={{ marginTop: "60px" }}>
-            <Divider horizontal>
-              <Header as="h4" style={{ color: "green" }}>
-                <Icon name="info circle" />
-                Package List
-              </Header>
-            </Divider>
-          </div>
-
-          {!isLoading ? (
-            packages.length !== 0 ? (
-              <div>
-                <div
-                  style={{
-                    float: "right",
-                    margin: "10px 10px 20px 0px"
-                  }}
-                >
-                  <Filter onFilterChange={this.onFilterChange} />
-                  <Sort onSortChange={this.onSortChange} />
-                </div>
-                <PackageDetails
-                  packageIdices={packages}
-                  packageList={orderedPackages}
-                />
-                <p></p>
-                <p style={{ margin: "20px 20px" }}>
-                  <CustomPagination
-                    activePage={activePage}
-                    totalItems={packages.length}
-                    perPage={perPage}
-                    onPaginationChange={this.onPaginationChange}
-                  />
-                </p>
-              </div>
-            ) : (
-              ""
-            )
-          ) : (
-            <div
-              style={{
-                width: "98%",
-                margin: "0px auto"
-              }}
-            >
-              <Loader />
-            </div>
-          )}
-        </div>
+        )}
       </div>
     );
   }

@@ -2,26 +2,25 @@
 import React from "react";
 
 //third party libraries
-import { toast } from "react-toastify";
+import { connect } from "react-redux";
 
-//components
-import NavSupplier from "../../components/NavSupplier";
-import Logout from "../../components/Logout";
+//actions
+import { fetchTokenRequest } from "../../containers/UserLogin/store/actions";
 
-export default class SupplierPage extends React.Component {
+class SupplierPage extends React.Component {
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      toast.error("You must first login");
-      this.props.history.push("/");
-    }
+    this.props.fetchTokenRequest();
   }
   render() {
-    return (
-      <React.Fragment>
-        <Logout />
-        <NavSupplier />
-      </React.Fragment>
-    );
+    return <React.Fragment></React.Fragment>;
   }
 }
+const mapStateToProps = state => {
+  return {
+    token: ""
+  };
+};
+const mapDispatchToProps = {
+  fetchTokenRequest
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SupplierPage);

@@ -10,8 +10,6 @@ const DropdownSearchSelection = ({
   packageOptions,
   onSelectChange
 }) => {
-  console.log("=====================", packageOptions);
-
   return (
     // <Link to={`/viewSinglePackage/${packageId}`}>
     <Dropdown

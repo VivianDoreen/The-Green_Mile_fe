@@ -24,7 +24,6 @@ describe("User login", () => {
   it("user login should render", () => expect(wrapper).toMatchSnapshot());
 
   it("should capture username correctly onChange", () => {
-    // console.log(wrapper.debug(), 'GHJHGHJHHJHHJ');
     const input = wrapper.find("input").at(0);
     input.instance().value = "nabulo";
     input.simulate("change");

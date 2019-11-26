@@ -6,13 +6,12 @@ import LoaderLogin from "../LoaderLogin";
 import Logo from "../../images/logo-8-edited-color-v2.png";
 
 const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
-  console.log(onLoading, "onLoading");
   const loginStyle = {
     backgroundColor: "#2d4615",
     border: "1px solid #2d4615"
   };
   return (
-    <div style={loginStyle}>
+    <div style={loginStyle} className='loginBar'>
       <nav
         className="navbar navbar-default navbar-fixed-top topnav"
         role="navigation"
@@ -71,7 +70,7 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
                       id="loginForm"
                       onSubmit={handleSubmit}
                     >
-                      <label>UserName:</label>
+                      <label className="labelName">UserName:</label>
                       <input
                         type="text"
                         name="username"

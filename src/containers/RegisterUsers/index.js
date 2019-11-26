@@ -7,6 +7,8 @@ import "../../styles/components/registerUsers.scss";
 import Nav from "../../components/Nav";
 import Logout from "../../components/Logout";
 import { toast } from "react-toastify";
+//scss
+import "../../styles/components/generalLayout.scss";
 
 export class RegisterUsers extends React.Component {
   state = {
@@ -19,13 +21,6 @@ export class RegisterUsers extends React.Component {
     confirm_password: ""
   };
 
-  componentWillMount() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      toast.error("You must first login");
-      this.props.history.push("/");
-    }
-  }
   componentWillReceiveProps(nextProps) {
     const { registeredUser, error } = nextProps;
     if (error) {
@@ -36,6 +31,7 @@ export class RegisterUsers extends React.Component {
       });
     }
   }
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -67,9 +63,7 @@ export class RegisterUsers extends React.Component {
     const { email, username, password, role, confirm_password } = this.state;
 
     return (
-      <div>
-        <Logout />
-        <Nav />
+      <div id="main-section">
         <RegistrationForm
           registeredUser={registeredUser}
           error={error}
@@ -96,7 +90,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   postUserRequest
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RegisterUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterUsers);
