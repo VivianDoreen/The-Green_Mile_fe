@@ -1,3 +1,48 @@
+// //react
+// import React from "react";
+
+// //third party libraries
+// import { connect } from "react-redux";
+
+// //actions
+// import { fetchTokenRequest } from "../../containers/UserLogin/store/actions";
+
+// //components
+// import ChoiceTable from "../../components/ChoiceTable";
+// import PackageDetails from "../../components/PackageDetails";
+// import * as selectors from "./store/selectors";
+// import { fetchPackagesRequest } from "../../containers/Packages/store/actions";
+
+// class Loader extends React.Component {
+//   componentDidMount() {
+//     this.props.fetchPackagesRequest();
+//     this.props.fetchTokenRequest();
+//   }
+
+//   render() {
+//     const { packages, isLoading } = this.props;
+//     return (
+//       <div id="main-section">
+//         <PackageDetails />
+//       </div>
+//     );
+//   }
+// }
+
+// const mapStateToProps = state => {
+//   return {
+//     packages: selectors.fetchPackages(state),
+//     error: selectors.fetchPackagesError(state),
+//     isLoading: selectors.getIsLoading(state)
+//   };
+// };
+// const mapDispatchToProps = {
+//   fetchTokenRequest,
+//   fetchPackagesRequest
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Loader);
+
 //react libraries
 import React, { Component } from "react";
 
@@ -12,19 +57,18 @@ import "../../styles/components/packages.scss";
 import "../../styles/components/generalLayout.scss";
 
 //components
-import * as selectors from "./store/selectors";
-import { fetchPackagesRequest } from "./store/actions";
+import * as selectors from "../Packages/store/selectors";
+import { fetchPackagesRequest } from "../Packages/store/actions";
 import PackageDetails from "../../components/PackageDetails";
-import Nav from "../../components/Nav";
-import Logout from "../../components/Logout";
 import Loader from "../../components/Loader";
 import CustomPagination from "../../components/CustomPagination";
 import Sort from "../../components/Sort";
 import Filter from "../../components/Filter/Filters";
 import DropdownSearchSelection from "../../components/DropdownSearchSelection";
-import SideMenu from "../../components/SideMenu";
 
-export class Packages extends Component {
+import { fetchTokenRequest } from "../../containers/UserLogin/store/actions";
+
+export class Loaders extends Component {
   state = {
     perPage: 10,
     activePage: 1,
@@ -34,6 +78,7 @@ export class Packages extends Component {
   };
   componentDidMount() {
     this.props.fetchPackagesRequest();
+    this.props.fetchTokenRequest();
   }
   onPaginationChange = activePage => {
     this.setState({ activePage }, () => this.fetchPackageItems());
@@ -60,7 +105,6 @@ export class Packages extends Component {
     this.setState({ value });
     this.props.history.push(`/viewSinglePackage/${value}`);
   };
-
   render() {
     const { packages, isLoading } = this.props;
     const ids = packages.length !== 0 ? packages : [];
@@ -142,7 +186,6 @@ export class Packages extends Component {
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
     packages: selectors.fetchPackages(state),
@@ -150,9 +193,8 @@ const mapStateToProps = state => {
     isLoading: selectors.getIsLoading(state)
   };
 };
-
 const mapDispatchToProps = {
-  fetchPackagesRequest
+  fetchPackagesRequest,
+  fetchTokenRequest
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Packages);
+export default connect(mapStateToProps, mapDispatchToProps)(Loaders);

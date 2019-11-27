@@ -2,103 +2,23 @@
 import React from "react";
 
 //third party libraries
-import Popup from "reactjs-popup";
 import { connect } from "react-redux";
 
+//selectors
+import * as selectors from "../../containers/Packages/store/selectors";
+
+//actions
+import { addPackageTypeRequest } from "../../containers/Packages/store/actions";
+
+//components
+import Button from "../../components/Button";
+
 const jwt = require("jsonwebtoken");
-// const SideMenu = ({
-//   handleSubmit,
-//   message,
-//   handleChange,
-//   placeHolderName,
-//   packageTypeName,
-//   packageTypeButton,
-//   legend
-// }) => {
-//   return (
-//     <React.Fragment>
-//       <div
-//         style={{
-//           width: "160px",
-//           marginTop: "2px",
-//           marginLeft: "-7px"
-//         }}
-//       >
-//         <Popup
-//           trigger={
-//             <button
-//               className="button"
-//               style={{
-//                 width: "90%",
-//                 padding: "5px",
-//                 backgroundColor: "#6ba701",
-//                 border: "none",
-//                 color: "#ffffff",
-//                 outline: "none",
-//                 cursor: "pointer"
-//               }}
-//             >
-//               {packageTypeButton}
-//             </button>
-//           }
-//           modal
-//         >
-//           {close => (
-//             <div className="modal">
-//               <a className="close" onClick={close}>
-//                 &times;
-//               </a>
-//               <div className="content">
-//                 <div
-//                   className="form-style-package-type"
-//                   style={{
-//                     width: "500px",
-//                     backgroundColor: "white",
-//                     paddingTop: "50px"
-//                   }}
-//                 >
-//                   <form onSubmit={handleSubmit}>
-//                     <fieldset>
-//                       <legend>{legend}</legend>
-//                       <p
-//                         style={{
-//                           color: "green",
-//                           textTransform: "lowercase"
-//                         }}
-//                       >
-//                         {console.log(message)}
-//                         {message}
-//                       </p>
-//                       <input
-//                         style={{
-//                           outline: "none",
-//                           width: "80%",
-//                           border: "1px solid #ccc"
-//                         }}
-//                         type="text"
-//                         name={packageTypeName}
-//                         onChange={handleChange}
-//                         placeholder="package type"
-//                         onFocus={e => (e.target.placeholder = "")}
-//                         onBlur={e => (e.target.placeholder = placeHolderName)}
-//                         required
-//                       />
-//                       <br />
-//                       <button style={{ outline: "none", cursor: "pointer" }}>
-//                         Submit
-//                       </button>
-//                     </fieldset>
-//                   </form>
-//                 </div>
-//               </div>
-//             </div>
-//           )}
-//         </Popup>
-//       </div>
-//     </React.Fragment>
-//   );
-// };
+
 class SideMenu extends React.Component {
+  state = {
+    package_type_name: ""
+  };
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -115,86 +35,33 @@ class SideMenu extends React.Component {
   };
 
   render() {
+    const { message } = this.props.packageTypes;
     const { token } = this.props.auth;
     const decoded = jwt.decode(token);
     return (
       <React.Fragment>
         <div id="grid-container-side-menu">
           {decoded.identity.role[0] === "Admin" ? (
-            <div className="sideMenul">
-              <Popup
-                trigger={
-                  <button
-                    className="button"
-                    style={{
-                      width: "90%",
-                      padding: "5px",
-                      backgroundColor: "#6ba701",
-                      border: "none",
-                      color: "#ffffff",
-                      outline: "none",
-                      cursor: "pointer"
-                    }}
-                  >
-                    'Add package Type'
-                  </button>
-                }
-                modal
-              >
-                {close => (
-                  <div className="modal">
-                    <a className="close" onClick={close}>
-                      &times;
-                    </a>
-                    <div className="content">
-                      <div
-                        className="form-style-package-type"
-                        style={{
-                          width: "500px",
-                          backgroundColor: "white",
-                          paddingTop: "50px"
-                        }}
-                      >
-                        <form onSubmit={this.handleSubmit}>
-                          <fieldset>
-                            <legend>{legend}</legend>
-                            <p
-                              style={{
-                                color: "green",
-                                textTransform: "lowercase"
-                              }}
-                            >
-                              {message}
-                            </p>
-                            <input
-                              style={{
-                                outline: "none",
-                                width: "80%",
-                                border: "1px solid #ccc"
-                              }}
-                              type="text"
-                              name={packageTypeName}
-                              onChange={handleChange}
-                              placeholder="package type"
-                              onFocus={e => (e.target.placeholder = "")}
-                              onBlur={e =>
-                                (e.target.placeholder = placeHolderName)
-                              }
-                              required
-                            />
-                            <br />
-                            <button
-                              style={{ outline: "none", cursor: "pointer" }}
-                            >
-                              Submit
-                            </button>
-                          </fieldset>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </Popup>
+            <div
+              style={{
+                width: "160px",
+                marginTop: "2px",
+                marginLeft: "-7px"
+              }}
+            >
+              <Button
+                handleSubmit={this.handleSubmit}
+                message={message}
+                handleChange={this.handleChange}
+                placeHolderName="Add Package Name"
+                packageTypeName="package_type_name"
+                legend="Add PAckage type"
+                buttonName="Add Package Name"
+              />
+              <Button placeHolderName="Users" buttonName="Users" />
+              <Button placeHolderName="Recipients" buttonName="Recipients" />
+              <Button placeHolderName="Loaders" buttonName="Loaders" />
+              <Button placeHolderName="Supliers" buttonName="Supliers" />
             </div>
           ) : (
             ""
@@ -207,7 +74,11 @@ class SideMenu extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.loginReducer
+    auth: state.loginReducer,
+    packageTypes: selectors.fetchPackageType(state)
   };
 };
-export default connect(mapStateToProps)(SideMenu);
+const mapDispatchToProps = {
+  addPackageTypeRequest
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);

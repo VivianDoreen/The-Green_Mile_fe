@@ -1,31 +1,92 @@
+//react
 import React from "react";
 
+//third party libraries
+import Popup from "reactjs-popup";
+
 const Button = ({
-  buttonText,
-  togglePopup,
-  getButtonName,
+  handleSubmit,
+  message,
   handleChange,
-  disableButton
+  placeHolderName,
+  packageTypeName,
+  packageTypeButton,
+  legend,
+  buttonName
 }) => {
   return (
     <React.Fragment>
-      <button
-        onClick={togglePopup}
-        name={getButtonName}
-        style={{
-          width: "90%",
-          backgroundColor: "#6ba701",
-          border: "none",
-          color: "#ffffff",
-          outline: "none",
-          cursor: "pointer",
-          marginLeft: "-20px",
-          marginBottom: "5px"
-        }}
-        disabled={disableButton}
-      >
-        {buttonText}
-      </button>
+      <div className="form-style-package-type">
+        <Popup
+          trigger={
+            <button
+              className="button"
+              style={{
+                width: "90%",
+                padding: "5px",
+                backgroundColor: "#6ba701",
+                border: "none",
+                color: "#ffffff",
+                outline: "none",
+                cursor: "pointer"
+              }}
+            >
+              {buttonName}
+            </button>
+          }
+          modal
+        >
+          {close => (
+            <div className="modal">
+              <a className="close" onClick={close}>
+                &times;
+              </a>
+              <div className="content">
+                <div
+                  className="form-style-package-type"
+                  style={{
+                    width: "500px",
+                    backgroundColor: "white",
+                    paddingTop: "50px"
+                  }}
+                >
+                  <form onSubmit={handleSubmit}>
+                    <fieldset>
+                      <legend>{legend}</legend>
+                      <p
+                        style={{
+                          color: "green",
+                          textTransform: "lowercase"
+                        }}
+                      >
+                        {message}
+                      </p>
+                      <input
+                        style={{
+                          outline: "none",
+                          width: "80%",
+                          border: "1px solid #ccc"
+                        }}
+                        type="text"
+                        name={packageTypeName}
+                        onChange={handleChange}
+                        placeholder={packageTypeName}
+                        onFocus={e => (e.target.placeholder = "")}
+                        onBlur={e => (e.target.placeholder = placeHolderName)}
+                        required
+                      />
+                      <br />
+                      <button style={{ outline: "none", cursor: "pointer" }}>
+                        Submit
+                      </button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+        </Popup>
+      </div>
     </React.Fragment>
   );
 };

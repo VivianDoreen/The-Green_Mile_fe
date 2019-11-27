@@ -12,10 +12,8 @@ const jwt = require("jsonwebtoken");
 
 const PrivateRoute = ({ component: Component, auth, ...rest }) => {
   const token = localStorage.getItem("token");
-  console.log(token, "tokenPrivate");
 
   const decoded = jwt.decode(token);
-  console.log(decoded, "decodeddeded");
 
   return (
     <Route
@@ -24,6 +22,12 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => {
         if (!token) {
           toast.error("You must first login");
           return <Redirect to="/" />;
+        } else if (decoded.identity.role[0] === "Admin") {
+          <Redirect to="/admin" />;
+        } else if (decoded.identity.role[0] === "Supplier") {
+          <Redirect to="/supplier" />;
+        } else if (decoded.identity.role[0] === "Loader") {
+          <Redirect to="/loader" />;
         }
         return <Component {...props} />;
       }}
@@ -32,8 +36,6 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => {
 };
 
 const mapStateToProps = state => {
-  console.log(getToken(state), "getUserToken");
-
   return {
     auth: getToken(state)
   };

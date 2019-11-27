@@ -1,5 +1,6 @@
 //react
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 
 //third party libraries
 import { Icon, Container, Divider, Header } from "semantic-ui-react";
@@ -7,10 +8,28 @@ import { Link } from "react-router-dom";
 
 //components
 import Sort from "../Sort";
+import { fetchPackagesRequest } from "../../containers/Packages/store/actions";
+import * as selectors from "../../containers/Packages/store/selectors";
 
-const PackageDetails = ({ packageList, packageIdices }) => {
+const PackageDetails = ({ packageList, packageIdices, handleChange }) => {
   const packageIdexes = packageIdices;
+  const [packageStates, setpackageState] = useState([]);
+  console.log(packageStates, "packageListList12345");
 
+  useEffect(() => {
+    let packageState = packageList;
+    setpackageState(
+      packageState.map(d => {
+        return {
+          select: false,
+          id: d.package_id,
+          packageName: d.package_name,
+          supplier: d.supplier_name,
+          recipient: d.recipient_name
+        };
+      })
+    );
+  }, []);
   return (
     <React.Fragment>
       <Container>
@@ -24,6 +43,21 @@ const PackageDetails = ({ packageList, packageIdices }) => {
           <thead>
             <tr>
               <th>No.</th>
+              <th>
+                <input
+                  type="checkbox"
+                  checked={packageStates.select}
+                  onChange={event => {
+                    let checked = event.target.checked;
+                    setpackageState(
+                      packageStates.map(data => {
+                        data.select = checked;
+                        return data;
+                      })
+                    );
+                  }}
+                />
+              </th>
               <th>Package name</th>
               <th>Package type</th>
               <th>Loading type</th>
@@ -36,12 +70,32 @@ const PackageDetails = ({ packageList, packageIdices }) => {
             </tr>
           </thead>
           <tbody>
-            {packageList.map(packageDetails => (
+            {console.log(packageStates, "packageStates")}
+            {packageStates.map(packageDetails => (
               <tr key={packageDetails.package_id}>
                 <td data-label="package_name">
                   {packageIdexes.indexOf(packageDetails) + 1}
                 </td>
-                <td data-label="package_name">{packageDetails.package_name}</td>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={packageDetails.select}
+                    onChange={event => {
+                      let checked = event.target.checked;
+
+                      setpackageState(
+                        packageStates.map(data => {
+                          if (packageDetails.id == data.id) {
+                            data.select = checked;
+                          }
+                          console.log(data, "2ndData");
+                          return data;
+                        })
+                      );
+                    }}
+                  />
+                </td>
+                <td data-label="package_name">{packageDetails.packageName}</td>
                 <td data-label="package_type">{packageDetails.package_type}</td>
                 <td data-label="loading_type">
                   {packageDetails.loading_type_name}
@@ -77,9 +131,23 @@ const PackageDetails = ({ packageList, packageIdices }) => {
             ))}
           </tbody>
         </table>
+        {/* <a onClick={getValue()}>Hello</a> */}
       </Container>
     </React.Fragment>
   );
 };
 
-export default PackageDetails;
+const mapStateToProps = state => {
+  return {
+    packages: selectors.fetchPackages(state),
+    error: selectors.fetchPackagesError(state),
+    isLoading: selectors.getIsLoading(state)
+  };
+};
+
+const mapDispatchToProps = {
+  fetchPackagesRequest
+};
+export default connect(mapStateToProps, mapDispatchToProps)(PackageDetails);
+
+// export default PackageDetails;

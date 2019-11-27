@@ -21,7 +21,6 @@ class ViewSinglePackage extends React.Component {
 
     return (
       <Fragment>
-        <Nav />
         {singlePackage.length !== 0 ? (
           <ViewSinglePackageDetails singlePackage={singlePackage} />
         ) : (

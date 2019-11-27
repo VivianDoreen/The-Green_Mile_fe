@@ -53,7 +53,7 @@ const Nav = () => {
         ) : (
           <Menu stackable>
             <Menu.Item>
-              <Link to="" className="navLinks">
+              <Link to="/admin" className="navLinks">
                 The Green Mile
               </Link>
             </Menu.Item>
@@ -83,7 +83,7 @@ const Nav = () => {
         }}
         onClick={() => localStorage.removeItem("token")}
       >
-        <a style={{ color: "#ffffff" }} href="/">
+        <a style={{ color: "#ffffff", outline: "none" }} href="/">
           Logout
         </a>
       </button>

@@ -39,12 +39,29 @@ export class UserLogin extends React.PureComponent {
     getUser ? this.props.fetchTokenRequest() : "";
   }
 
-  // componentDidMount() {
-  //   const token = localStorage.getItem("token");
-  //   if (token) {
-  //     this.props.history.push("/admin");
-  //   }
-  // }
+  componentDidMount() {
+    const { history } = this.props;
+    const token = localStorage.getItem("token");
+    const decoded = jwt.decode(token);
+    console.log(decoded, "decodeddecoded");
+
+    if (token && decoded.identity.role[0] === "Admin") {
+      this.props.history.push("/admin");
+    }
+
+    if (token && decoded.identity.role[0] === "Supplier") {
+      this.props.history.push("/supplier");
+    }
+
+    if (token && decoded.identity.role[0] === "Loader") {
+      this.props.history.push("/loader");
+    }
+
+    if (token && decoded.identity.role[0] === "Recipient") {
+      this.props.history.push("/recipient");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const { getUser, getError } = nextProps;
     const { history } = this.props;
@@ -64,6 +81,9 @@ export class UserLogin extends React.PureComponent {
       } else if (decoded.identity.role[0] === "Supplier") {
         toast.success("successfully logged in");
         history.push("/supplier");
+      } else if (decoded.identity.role[0] === "Loader") {
+        toast.success("successfully logged in");
+        history.push("/loader");
       } else {
         toast.success("successfully logged in");
         // history.push("/register");

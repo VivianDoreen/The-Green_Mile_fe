@@ -32,28 +32,33 @@ export class AddPackages extends React.Component {
   handleDate = e => {
     e.target.type = "date";
   };
+
   handleSubmit = e => {
     e.preventDefault();
     const {
       package_name,
-      package_type_name,
+      package_type,
       delivery_description,
       loading_type_name,
       hub_address,
       recipient_name,
       recipient_address,
-      delivery_date
+      delivery_date,
+      recipient_email,
+      delivery_status
     } = this.state;
 
     const data = {
       package_name,
-      package_type_name,
+      package_type,
       delivery_description,
       loading_type_name,
       hub_address,
       recipient_name,
       recipient_address,
-      delivery_date
+      delivery_date,
+      recipient_email,
+      delivery_status
     };
     this.props.postPackageRequest(data);
   };

@@ -18,8 +18,6 @@ export class Header extends Component {
   render() {
     const { isAuthenticated, token } = this.props.auth;
 
-    console.log(token, "TOKEN");
-
     return <React.Fragment>{token ? <Nav /> : ""}</React.Fragment>;
   }
 }

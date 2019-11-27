@@ -19,6 +19,8 @@ export function* addPackages(action) {
     const response = yield call(Api.postPackages, packages);
     yield put(postPackageSuccess(response.data));
   } catch (error) {
+    console.log(error.response, "error.response");
+
     yield put(postPackageFailure(error));
   }
 }

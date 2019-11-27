@@ -24,9 +24,17 @@ const PackageForm = ({
               required
             />
             <br />
+            <input
+              type="text"
+              name="recipient_name"
+              onChange={handleChange}
+              placeholder="recipient name *"
+              required
+            />
+            <br />
             <select
               id="packageType"
-              name="package_type_name"
+              name="package_type"
               onChange={handleChange}
               required
             >
@@ -70,32 +78,40 @@ const PackageForm = ({
 
             <select
               id="recipientName"
-              name="recipient_name"
+              name="delivery_status"
               onChange={handleChange}
               required
             >
-              <option>recipient name</option>
-              <option value="Maria">Maria</option>
-              <option value="Nabulo">Nabulo</option>
+              <option>delivery status</option>
+              <option value="preparing for shipment">
+                preparing for shipment
+              </option>
             </select>
+            <br />
+            <input
+              type="text"
+              name="recipient_email"
+              onChange={handleChange}
+              placeholder="recipient email*"
+              required
+            />
             <br />
             <input
               type="text"
               name="recipient_address"
               onChange={handleChange}
-              placeholder="recipientAddress*"
+              placeholder="recipient address*"
               required
             />
             <br />
             <input
-              type="date"
+              type="text"
               name="delivery_date"
               onChange={handleChange}
               onFocus={handleDate}
               placeholder="delivery date"
               required
             />
-
             <br />
             <textarea
               rows="5"

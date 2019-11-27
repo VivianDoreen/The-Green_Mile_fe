@@ -1,4 +1,4 @@
-//react libraries
+//react
 import React from "react";
 
 //third party libraries
@@ -20,6 +20,7 @@ import GeneralLayout from "../../components/GeneralLayout";
 import Header from "../Header";
 import SideMenu from "../../components/SideMenu";
 import PrivateRoute from "../PrivateRoute";
+import Loader from "../Loader";
 
 // third party libraries
 import { connect } from "react-redux";
@@ -44,6 +45,7 @@ const App = props => {
             <PrivateRoute path="/addPackages" component={AddPackages} />
             <PrivateRoute path="/supplier" component={SupplierPage} />
             <PrivateRoute path="/layout" component={GeneralLayout} />
+            <PrivateRoute path="/loader" component={Loader} />
             <PrivateRoute component={PageNotFound} />
           </Switch>
         </Router>
