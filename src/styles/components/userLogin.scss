@@ -1,474 +1,184 @@
-body,
-html {
-  width: 100%;
-  height: 100%;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-}
-
-.topnav {
-  border: 1px solid #6ba701;
-  // font-size: 16px;
-  border-bottom: 1px outset rgba(192, 192, 192, 0.5);
-  background: #6ba701 !important;
-  box-shadow: 0px 1px rgba(0, 0, 0, 0.3);
-  height: 40px;
-}
-
-.topnav ul.navbar-nav li {
-  list-style-type: none;
-  font-size: 16px;
-}
-
-.topnav ul.navbar-nav li a {
-  color: #ffffff;
-  float: left;
-  margin-left: 6px;
-  padding: 3px;
-  margin-top: -10px;
-  border-radius: 3px;
-  align-content: center;
-  text-decoration: none;
-  // margin-top: 5px;
-}
-
-.topnav ul.navbar-nav li a:hover,
-.topnav ul.navbar-nav li a:focus {
-  background: rgba(255, 255, 255, 0.5);
-  color: #000;
-}
-
-.topnav .navbar-brand {
-  background: rgba(28, 28, 28, 0);
-  color: #000;
-}
-
-.topnav .navbar-brand:hover,
-.topnav .navbar-brand:focus {
-  background: rgba(255, 255, 255, 0.5);
-  color: #000;
-}
-
-.lead {
-  font-size: 18px;
-  font-weight: 400;
-}
-
-/*top background*/
-.intro-header {
-  text-align: center;
-  background: url("../../images/tumblr_nt5uk4psl31ud7rr3o1_1280Edited-color-overlay.png");
-  background-size: cover;
-  height: 655px;
-}
-
-.intro-message {
-  position: relative;
-  padding-top: 15%;
-  padding-bottom: 20%;
-}
-
-/*Big header*/
-.intro-message > h1 {
-  position: absolute;
-  top: 10px;
-  left: 50px;
-  text-shadow: 2px 1px 2px #0b3103;
-  font-size: 2.2em;
-  color: #ebe6e6;
-}
-
-.intro-divider {
-  width: 400px;
-  border-top: 1px solid #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/*small header*/
-.intro-message > h3 {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-  color: #cccccc;
-  // font-size: 2em;
-  border: "1px solid blue";
-}
-
-@media (max-width: 767px) {
-  .intro-message {
-    padding-bottom: 15%;
-  }
-
-  .intro-message > h1 {
-    font-size: 3em;
-  }
-
-  ul.intro-social-buttons > li {
-    display: block;
-    margin-bottom: 20px;
-    padding: 0;
-  }
-
-  ul.intro-social-buttons > li:last-child {
-    margin-bottom: 0;
-  }
-
-  .intro-divider {
-    width: 100%;
-  }
-}
-
-/*line*/
-hr.intro-divider {
-  border: 1px outset rgba(255, 255, 255, 0.2);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-  width: 100%;
-}
-
-/* social buttons */
-.btn {
-  display: inline-block;
-  color: #000;
-  border: 2px outset rgba(0, 0, 0, 0.9);
-  background: #c0c0c0;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 20);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-  letter-spacing: 2px;
-  transition: 0.2s;
-}
-
-.btn:hover {
-  color: #fff;
-  border: 2px outset rgba(0, 0, 0, 0.9);
-  background: rgba(0, 0, 0, 0.9);
-  transform: scale(1.1);
-  transition: 0.2s;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 20);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-  letter-spacing: 2px;
-}
-
-/*section 2*/
-.content-section-a {
-  padding: 50px 0;
-  background: url("https://68.media.tumblr.com/eb2382a5a4c996cfdab27bc0d1eb51ff/tumblr_nt5umxS1FY1ud7rr3o1_540.jpg")
-    no-repeat center center fixed;
-  background-size: cover;
-  height: 855px;
-}
-
-.bg-overlay2 {
-  margin-top: -50px;
-  background: rgba(255, 255, 255, 0.2);
-  height: 855px;
-}
-
-/*self-taught*/
-.container .link {
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.container .link-footer {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  font-size: 32px;
-}
-
-.container .link-footer:hover {
-  color: rgba(24, 39, 40, 0.8);
-  font-weight: bold;
-  font-size: 32px;
-}
-
-.container .link:hover {
-  color: rgb(0, 0, 128);
-  font-weight: bold;
-  font-size: 22.5px;
-}
-
-h2.section-heading {
-  margin-top: 100px;
-  font-size: 3em;
-  color: rgba(0, 0, 0, 0.9);
-}
-
-/*text*/
-.content-section-a p {
-  font-size: 22px;
-  font-weight: bold;
-  color: #000;
-}
-
-.content-section-a p a {
-  color: silver;
-  font-weight: bold;
-}
-
-/*profile picture*/
-.img-circle {
-  margin-top: 150px;
-  border: 1px outset rgba(255, 255, 255, 0.3);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-}
-
-/* Portfolio section*/
-section {
-  color: black;
-  background: url("https://68.media.tumblr.com/d3fd545cd977a174beef12c1106880bf/tumblr_nt505iKkul1ud7rr3o1_1280.jpg")
-    no-repeat center center fixed;
-  background-size: cover;
-}
-
-#below-section {
-  color: #000;
-}
-
-#small-text {
-  color: white;
-}
-
-ul {
-  height: 30px;
-}
-
-#portfolio .portfolio-item {
-  margin: 0 0 15px;
-  right: 0;
-  border: 1px outset rgba(255, 255, 255, 0.6);
-}
-
-#portfolio .portfolio-item:hover {
-  transition: 0.5s;
-  box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.9);
-}
-
-#portfolio .portfolio-item .portfolio-link {
-  display: block;
-  position: relative;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover {
-  background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: all ease 0.5s;
-  -webkit-transition: all ease 0.5s;
-  -moz-transition: all ease 0.5s;
-}
-
-#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
-  opacity: 1;
-}
-
-#portfolio
-  .portfolio-item
-  .portfolio-link
-  .portfolio-hover
-  .portfolio-hover-content {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  font-size: 20px;
-  text-align: center;
-  top: 50%;
-  margin-top: -12px;
-  color: #fff;
-}
-
-#portfolio
-  .portfolio-item
-  .portfolio-link
-  .portfolio-hover
-  .portfolio-hover-content
-  i {
-  margin-top: -12px;
-}
-
-#portfolio
-  .portfolio-item
-  .portfolio-link
-  .portfolio-hover
-  .portfolio-hover-content
-  h3,
-#portfolio
-  .portfolio-item
-  .portfolio-link
-  .portfolio-hover
-  .portfolio-hover-content
-  h4 {
-  margin: 0;
-}
-
-#portfolio .portfolio-item .portfolio-caption {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  padding: 25px;
-}
-
-#portfolio .portfolio-item .portfolio-caption h4 {
-  color: #fff;
-  text-transform: none;
-  margin: 0;
-}
-
-#portfolio .portfolio-item .portfolio-caption p {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
-  font-size: 13px;
-  margin: 0;
-}
-
-#portfolio * {
-  z-index: 2;
-}
-
-@media (min-width: 767px) {
-  #portfolio .portfolio-item {
-    margin: 0 0 30px;
-  }
-}
-
-.section-heading-spacer {
-  float: left;
-  width: 200px;
-  border-top: 3px solid #e7e7e7;
-}
-
-.banner {
-  padding: 100px 0;
-  background: url("https://68.media.tumblr.com/ac46aa24b44b5036e9200abb71f810d9/tumblr_nt5vzxV6Us1ud7rr3o1_1280.jpg")
-    no-repeat center center fixed;
-  background-size: cover;
-  height: 755px;
-}
-
-.bg-overlay4 {
-  margin-top: -100px;
-  padding: 100px 0;
-  background: rgba(255, 255, 255, 0.3);
-  height: 755px;
-}
-
-.banner ul {
-  margin-bottom: 0;
-}
-
-.banner-social-buttons {
-  float: right;
-  margin-top: 0;
-}
-
-@media (max-width: 1199px) {
-  ul.banner-social-buttons {
-    float: left;
-    margin-top: 15px;
-  }
-}
-
-ul.banner-social-buttons > li {
-  display: block;
-  margin-bottom: 20px;
+*{
   padding: 0;
-}
-
-ul.banner-social-buttons > li:last-child {
-  margin-bottom: 0;
-}
-
-h2.connect {
   margin: 0;
-  color: rgba(0, 0, 0, 0.9);
+}
+body {
+font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight: 700;
+position: relative;
+background-image: url(../../images/tumblr_nt5uk4psl31ud7rr3o1_1280-editedv1-cropped.png);
 }
 
-footer {
-  padding: 3px 0 5px 0;
-  background: #6ba701;
+.navbar {
+background-color: #2E8B57 !important;
+}
+.navbar-collapse a {
+color: white !important;
+}
+.navbar-collapse button {
+color: white !important;
+}
+.page-footer {
+position:fixed;
+width: 100%;
+bottom:0;
+left:0;
+background-color: #2E8B57 !important;
+}
+.page-footer a{
+text-decoration: none !important;
+color: white !important
+}
+.footer-copyright {
+color: white !important;
+}
+:root {
+--input-padding-x: 1.5rem;
+--input-padding-y: .75rem;
 }
 
-p.copyright {
-  margin: 15px 0 0;
-  text-align: center;
-  color: #ffffff;
+.card-signin {
+border: 0;
+border-radius: 1rem;
+box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
 
-.loginForm {
-  font-size: 12px (rem);
-  margin-top: 70px;
-  text-align: center;
+.card-signin .card-title {
+margin-bottom: 2rem;
+font-weight: 300;
+font-size: 1.5rem;
 }
 
-// label {
-//   text-transform: capitalize !important;
-//   color: #000000;
-//   padding-left: 10px;
-//   margin-left: 0px;
-// }
-
-.loginForm label {
-  padding-left: 10px;
-  margin-left: 0px;
-  // margin: 90px;
-  font-size: 1.2rem;
-  // text-transform: uppercase;
-  color: rgb(7, 6, 6);
+.card-signin .card-body {
+padding: 2rem;
 }
 
-.inputUserName {
-  width: 150px;
-  border: 0px;
-  border-radius: 3px;
-  padding: 3px 4px;
-  background: #b6dcae;
+.form-signin {
+width: 100%;
 }
 
-.inputUserName:focus {
-  outline: none;
+.form-signin .btn {
+font-size: 80%;
+border-radius: 5rem;
+letter-spacing: .1rem;
+font-weight: bold;
+padding: 1rem;
+transition: all 0.2s;
+background-color: rgba(106, 167, 1, 0.705);
+border-color:#2E8B57;
+cursor: pointer;
 }
 
-#loginButton {
-  background-color: #000000; /* Green */
-  border: none;
-  color: #b6dcae;
-  padding: 6px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin: 20px 0 0 5px;
-  cursor: pointer;
-  border-radius: 4px;
+.form-label-group {
+position: relative;
+margin-bottom: 1rem;
+}
+#aboutus {
+color: rgba(106, 167, 1, 0.705);
+text-align: center;
+}
+#mission {
+color: rgba(106, 167, 1, 0.705);
+text-align: center;
+}
+#values {
+color: rgba(106, 167, 1, 0.705);
+text-align: center;
+}
+#valuestxt {
+text-align: center;
+}
+#contactus {
+color: rgba(106, 167, 1, 0.705);
+text-align: center;
+}
+.form-label-group input {
+height: auto;
+border-radius: 2rem;
 }
 
-#loginButton:focus {
-  cursor: pointer;
-  outline: none;
+.form-label-group>input,
+.form-label-group>label {
+padding: var(--input-padding-y) var(--input-padding-x);
 }
-#loginButton:disabled {
-  border: 1px solid #6ba701;
-  background-color: #000000;
-  color: #ffffff;
+
+.form-label-group>label {
+position: absolute;
+top: 0;
+left: 0;
+display: block;
+width: 100%;
+margin-bottom: 0;
+/* Override default `<label>` margin */
+line-height: 1.5;
+color: #495057;
+border: 1px solid transparent;
+border-radius: .25rem;
+transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+color: transparent;
+}
+
+.form-label-group input::placeholder {
+color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+padding-top: calc(var(--input-padding-y) / 3);
+padding-bottom: calc(var(--input-padding-y) / 3);
+font-size: 12px;
+color: #777;
+}
+.logo {
+margin-left: 20%;
+margin-top: 5%;
+margin-bottom: 5%;
 }
 .userErrorLogin {
-  position: absolute;
-  top: 210px;
-  left: 380px;
-  color: maroon;
-  font-weight: bold;
-  text-align: center;
-  font-size: 16px;
+color: red;
+font-size: 12px;
+text-align: center;
+}
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+.form-label-group>label {
+  display: none;
+}
+.form-label-group input::-ms-input-placeholder {
+  color: #777;
+}
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+.form-label-group>label {
+  display: none;
+}
+.form-label-group input:-ms-input-placeholder {
+  color: #777;
+}
 }
