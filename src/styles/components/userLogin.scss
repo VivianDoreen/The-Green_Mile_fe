@@ -1,7 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 body,
 html {
   width: 100%;
-  height: 100%;
 }
 
 body,
@@ -14,7 +17,10 @@ h6 {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
-
+body {
+  min-height: 100%;
+  position: relative;
+}
 .topnav {
   border: 1px solid #6ba701;
   // font-size: 16px;
@@ -395,9 +401,16 @@ h2.connect {
   color: rgba(0, 0, 0, 0.9);
 }
 
+// footer {
+//   padding: 3px 0 5px 0;
+//   background: #6ba701;
+// }
+
 footer {
-  padding: 3px 0 5px 0;
-  background: #6ba701;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 p.copyright {

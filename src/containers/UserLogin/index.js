@@ -28,14 +28,6 @@ export class UserLogin extends React.PureComponent {
   };
 
   componentDidMount() {
-    // const token = this.props.fetchTokenRequest();
-    // if (!token) {
-    //   toast.error("You must first login");
-    //   this.props.history.push("/");
-    // }
-
-    // console.log(getUser, "getUse1r");
-
     getUser ? this.props.fetchTokenRequest() : "";
   }
 
@@ -84,17 +76,14 @@ export class UserLogin extends React.PureComponent {
       } else if (decoded.identity.role[0] === "Loader") {
         toast.success("successfully logged in");
         history.push("/loader");
+      } else if (decoded.identity.role[0] === "Recipient") {
+        toast.success("successfully logged in");
+        history.push("/recipient");
       } else {
         toast.success("successfully logged in");
-        // history.push("/register");
       }
     }
   }
-
-  // static propTypes = {
-  //   login: PropTypes.func.isRequired,
-  //   isAuthenticated: PropTypes.bool
-  // };
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -109,13 +98,10 @@ export class UserLogin extends React.PureComponent {
       password
     };
     this.props.loginUserRequest(data);
-    // this.setState({ loading: true });
   };
 
   render() {
     const { getError, getUser, getIsLoading, auth } = this.props;
-    getUser ? console.log(getUser, "getUserzzzzzz") : "";
-
     return (
       <React.Fragment>
         <LoginForm

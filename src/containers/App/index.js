@@ -21,7 +21,11 @@ import Header from "../Header";
 import SideMenu from "../../components/SideMenu";
 import PrivateRoute from "../PrivateRoute";
 import Loader from "../Loader";
-
+import About from "../../components/About";
+import Contact from "../../components/Contact";
+import ViewSupplierPackages from "../ViewSupplierPackages";
+import Recipient from "../Recipient";
+import SelectedPackages from "../SelectedPackages";
 // third party libraries
 import { connect } from "react-redux";
 
@@ -37,6 +41,8 @@ const App = props => {
           {token ? <SideMenu /> : ""}
           <Switch>
             <Route path="/" exact component={UserLogin} />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
             <PrivateRoute path="/admin" component={AdminPage} />
             <PrivateRoute path="/register" component={RegisterUsers} />
             <PrivateRoute path="/packages" exact component={Packages} />
@@ -46,6 +52,15 @@ const App = props => {
             <PrivateRoute path="/supplier" component={SupplierPage} />
             <PrivateRoute path="/layout" component={GeneralLayout} />
             <PrivateRoute path="/loader" component={Loader} />
+            <PrivateRoute path="/recipient" component={Recipient} />
+            <PrivateRoute
+              path="/viewSupplierPackages"
+              component={ViewSupplierPackages}
+            />
+            <PrivateRoute
+              path="/selectedPackages"
+              component={SelectedPackages}
+            />
             <PrivateRoute component={PageNotFound} />
           </Switch>
         </Router>

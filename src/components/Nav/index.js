@@ -28,6 +28,11 @@ const Nav = () => {
                 AddPackages
               </Link>
             </Menu.Item>
+            <Menu.Item>
+              <Link to="/viewSupplierPackages" className="navLinks">
+                ViewPackages
+              </Link>
+            </Menu.Item>
           </Menu>
         ) : decoded.identity.role[0] === "Loader" ? (
           <Menu stackable>
@@ -41,16 +46,26 @@ const Nav = () => {
                 Packages
               </Link>
             </Menu.Item>
+            <Menu.Item>
+              <Link to="/selectedPackages" className="navLinks">
+                View Selected Packages
+              </Link>
+            </Menu.Item>
           </Menu>
         ) : decoded.identity.role[0] === "Recipient" ? (
           <Menu stackable>
+            <Menu.Item>
+              <Link to="/recipient" className="navLinks">
+                The Green Mile
+              </Link>
+            </Menu.Item>
             <Menu.Item>
               <Link to="" className="navLinks">
                 Packages
               </Link>
             </Menu.Item>
           </Menu>
-        ) : (
+        ) : decoded.identity.role[0] === "Admin" ? (
           <Menu stackable>
             <Menu.Item>
               <Link to="/admin" className="navLinks">
@@ -68,14 +83,29 @@ const Nav = () => {
               </Link>
             </Menu.Item>
           </Menu>
+        ) : (
+          <Menu stackable>
+            <Menu.Item>
+              <Link to="/" className="navLinks">
+                The Green Mile
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/about" className="navLinks">
+                About Us
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/contact" className="navLinks">
+                Contact
+              </Link>
+            </Menu.Item>
+          </Menu>
         )}
       </Container>
-      {/* <span className="navbar-text mr-3"> */}
-      {/* <strong>{user ? `Welcome ${user.username}` : ""}</strong> */}
-      {/* </span> */}
       <button
         style={{
-          marginTop: "25px",
+          marginTop: "8px",
           backgroundColor: "green",
           padding: "6px",
           borderRadius: "5px",

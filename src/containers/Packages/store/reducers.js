@@ -32,6 +32,38 @@ const packageReducer = (state = initialState, action) => {
         packageType: action.payload
       };
 
+    case types.FETCH_SUPPLIER_PACKAGES_REQUEST:
+      return { ...initialState, isLoading: true };
+
+    case types.FETCH_SUPPLIER_PACKAGES_SUCCESS:
+      return {
+        ...initialState,
+        isLoading: false,
+        packageList: action.payload
+      };
+    case types.FETCH_SUPPLIER_PACKAGES_FAILURE:
+      return {
+        ...initialState,
+        isLoading: false,
+        error: action.payload.error
+      };
+
+    case types.FETCH_RECIPIENT_PACKAGES_REQUEST:
+      return { ...initialState, isLoading: true };
+
+    case types.FETCH_RECIPIENT_PACKAGES_SUCCESS:
+      return {
+        ...initialState,
+        isLoading: false,
+        packageList: action.payload
+      };
+    case types.FETCH_RECIPIENT_PACKAGES_FAILURE:
+      return {
+        ...initialState,
+        isLoading: false,
+        error: action.payload.error
+      };
+
     default:
       return state;
   }

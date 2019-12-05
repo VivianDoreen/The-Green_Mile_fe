@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 //third party libraries
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import { Divider, Header, Icon } from "semantic-ui-react";
 import orderBy from "lodash/orderBy";
 
@@ -12,16 +13,15 @@ import "../../styles/components/generalLayout.scss";
 
 //components
 import * as selectors from "../Packages/store/selectors";
-import { fetchPackagesRequest } from "../Packages/store/actions";
-import LoaderPackageDetails from "../../components/LoaderPackageDetails";
+import { fetchSupplierPackagesRequest } from "../Packages/store/actions";
+import PackageDetails from "../../components/PackageDetails";
 import Loader from "../../components/Loader";
 import CustomPagination from "../../components/CustomPagination";
 import Sort from "../../components/Sort";
 import Filter from "../../components/Filter/Filters";
+import DropdownSearchSelection from "../../components/DropdownSearchSelection";
 
-import { fetchTokenRequest } from "../../containers/UserLogin/store/actions";
-
-export class Loaders extends Component {
+export class ViewSupplierPackages extends Component {
   state = {
     perPage: 10,
     activePage: 1,
@@ -29,16 +29,12 @@ export class Loaders extends Component {
     sort: "asc",
     value: 0
   };
-
   componentDidMount() {
-    this.props.fetchPackagesRequest();
-    this.props.fetchTokenRequest();
+    this.props.fetchSupplierPackagesRequest();
   }
-
   onPaginationChange = activePage => {
     this.setState({ activePage }, () => this.fetchPackageItems());
   };
-
   fetchPackageItems = () => {
     const { packages } = this.props;
     const { perPage, activePage } = this.state;
@@ -61,9 +57,12 @@ export class Loaders extends Component {
     this.setState({ value });
     this.props.history.push(`/viewSinglePackage/${value}`);
   };
+
   render() {
     const { packages, isLoading } = this.props;
-    const ids = packages.length !== 0 ? packages : [];
+    console.log(packages, "Packages");
+
+    // const ids = packages.length !== 0 ? packages : [];
     const { activePage, perPage, packageName, sort, value } = this.state;
     const slicedPackage = this.fetchPackageItems();
     const orderedPackages = orderBy(slicedPackage, [packageName], [sort]);
@@ -78,6 +77,18 @@ export class Loaders extends Component {
 
     return (
       <div id="main-section">
+        <div
+          style={{
+            width: "20%",
+            float: "right"
+          }}
+        >
+          <DropdownSearchSelection
+            packageOptions={packageOptions}
+            onSelectChange={this.onSelectChange}
+            packageId={value}
+          />
+        </div>
         <div style={{ marginTop: "0px" }}>
           <Divider horizontal>
             <Header as="h4" style={{ color: "green" }}>
@@ -90,7 +101,16 @@ export class Loaders extends Component {
         {!isLoading ? (
           packages.length !== 0 ? (
             <div>
-              <LoaderPackageDetails
+              <div
+                style={{
+                  float: "right",
+                  margin: "10px 10px 20px 0px"
+                }}
+              >
+                <Filter onFilterChange={this.onFilterChange} />
+                <Sort onSortChange={this.onSortChange} />
+              </div>
+              <PackageDetails
                 packageIdices={packages}
                 packageList={orderedPackages}
               />
@@ -121,15 +141,20 @@ export class Loaders extends Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
-    packages: selectors.fetchPackages(state),
+    packages: selectors.fetchSupplierPackages(state),
     error: selectors.fetchPackagesError(state),
     isLoading: selectors.getIsLoading(state)
   };
 };
+
 const mapDispatchToProps = {
-  fetchPackagesRequest,
-  fetchTokenRequest
+  fetchSupplierPackagesRequest
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Loaders);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ViewSupplierPackages);

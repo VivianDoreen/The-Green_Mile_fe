@@ -83,9 +83,11 @@ const PackageForm = ({
               required
             >
               <option>delivery status</option>
-              <option value="preparing for shipment">
-                preparing for shipment
+              <option value="prepared for shipment">
+                prepared for shipment
               </option>
+              <option value="shipped">shipped</option>
+              <option value="delivered">delivered</option>
             </select>
             <br />
             <input

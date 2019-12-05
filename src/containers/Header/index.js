@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Nav from "../../components/Nav";
 import { fetchTokenRequest } from "../../containers/UserLogin/store/actions";
+import LoginNav from "../../components/LoginNav";
 
 export class Header extends Component {
   static propTypes = {
@@ -18,7 +19,7 @@ export class Header extends Component {
   render() {
     const { isAuthenticated, token } = this.props.auth;
 
-    return <React.Fragment>{token ? <Nav /> : ""}</React.Fragment>;
+    return <React.Fragment>{token ? <Nav /> : <LoginNav />}</React.Fragment>;
   }
 }
 

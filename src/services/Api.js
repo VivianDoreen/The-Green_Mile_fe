@@ -36,6 +36,16 @@ export default class Api {
     return response;
   };
 
+  static fetchSupplierPackages = async () => {
+    const response = await axios.get("packages/supplier_packages");
+    return response;
+  };
+
+  static fetchRecipientPackages = async () => {
+    const response = await axios.get("packages/recipient_packages");
+    return response;
+  };
+
   static fetchSinglePackage = async package_id => {
     const response = await axios.get(`packages/${package_id}`, {
       headers: headers

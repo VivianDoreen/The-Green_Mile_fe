@@ -60,6 +60,8 @@ export class AddPackages extends React.Component {
       recipient_email,
       delivery_status
     };
+    console.log(data, "Datatatatatata");
+
     this.props.postPackageRequest(data);
   };
   render() {
