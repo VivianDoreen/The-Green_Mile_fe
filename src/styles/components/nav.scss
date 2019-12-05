@@ -6,6 +6,13 @@
   float: left;
 }
 .navLinks {
-  color: #12a405;
+  color: #fff;
   font-size: 16px;
+  text-decoration: none;
+}
+.navLinks:hover {
+    color: rgba(106, 167, 1, 0.705);
+}
+.ui.stackable.menu {
+    background-color:#2E8B57 !important;
 }

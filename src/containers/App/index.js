@@ -21,6 +21,8 @@ import Header from "../Header";
 import SideMenu from "../../components/SideMenu";
 import PrivateRoute from "../PrivateRoute";
 import Loader from "../Loader";
+import About from "../../components/About";
+import Contact from "../../components/Contact";
 
 // third party libraries
 import { connect } from "react-redux";
@@ -37,6 +39,8 @@ const App = props => {
           {token ? <SideMenu /> : ""}
           <Switch>
             <Route path="/" exact component={UserLogin} />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
             <PrivateRoute path="/admin" component={AdminPage} />
             <PrivateRoute path="/register" component={RegisterUsers} />
             <PrivateRoute path="/packages" exact component={Packages} />
