@@ -4,11 +4,11 @@
   "description": "The Green Mile is a company which specializes in door to door delivery of packages.",
   "main": "index.js",
   "scripts": {
-    "start": "run-p start:dev start:api",
+    "dev": "run-p start:dev start:api",
     "build": "webpack --mode production --open --hot",
     "start:dev": "webpack-dev-server --open --mode development --hot ",
     "heroku-postbuild": "npm run build",
-    "start:api": "node server.js",
+    "start": "node server.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
@@ -19,7 +19,7 @@
     ]
   },
   "engines": {
-    "node": "6.11.1"
+    "node": "10.15.1"
   },
   "repository": {
     "type": "git",
