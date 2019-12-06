@@ -2,7 +2,7 @@
 import React from "react";
 
 //image
-import bgImage from "../../images/tumblr_nt5uk4psl31ud7rr3o1_1280Edited-color-overlay.png";
+import bgImage from "../../images/prof.jpg";
 
 const About = () => {
   return (

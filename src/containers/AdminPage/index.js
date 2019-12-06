@@ -57,27 +57,137 @@ class AdminPage extends React.Component {
               marginTop: "5px",
               textTransform: "uppercase",
               textAlign: "center",
-              color: "#12A405",
-              fontSize: "27px",
+              color: "#2E8B57",
+              fontSize: "18px",
               textDecoration: "underline"
             }}
           >
             Packages
           </p>
           <p>
-            <b style={{ fontWeight: "bold" }}>Delivered</b> - 10
+            <b style={{ fontWeight: "bold", fontSize: "15px" }}>Delivered : 10</b>
             <br />
-            <b style={{ fontWeight: "bold" }}>Pending</b> - 20
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Pending: 20</b>
             <br />
-            <b style={{ fontWeight: "bold" }}>Total</b> -{" "}
-            {this.props.packages.length}
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Total:  {this.props.packages.length}</b> 
+           
           </p>
         </div>
-        <div>a</div>
-        <div>b</div>
-        <div>c</div>
-        <div>d</div>
-        <div>e</div>
+        <div>
+        <p
+            style={{
+              marginTop: "5px",
+              textTransform: "uppercase",
+              textAlign: "center",
+              color: "#2E8B57",
+              fontSize: "18px",
+              textDecoration: "underline"
+            }}
+          >
+            Users
+          </p>
+          <p>
+            <b style={{ fontWeight: "bold", fontSize: "15px" }}>Recipients : 10</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Suppliers: 20</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Loaders: 30</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Total:60</b> 
+           
+          </p>
+        </div>
+        <div>
+        <p
+            style={{
+              marginTop: "5px",
+              textTransform: "uppercase",
+              textAlign: "center",
+              color: "#2E8B57",
+              fontSize: "18px",
+              textDecoration: "underline"
+            }}
+          >
+            Available Hubs
+          </p>
+          <p>
+            <b style={{ fontWeight: "bold", fontSize: "15px" }}>Kampala : 15</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Jinja: 10</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Masaka: 10</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Total :35</b> 
+
+           
+          </p>
+        </div>
+        <div>
+        <p
+            style={{
+              marginTop: "5px",
+              textTransform: "uppercase",
+              textAlign: "center",
+              color: "#2E8B57",
+              fontSize: "18px",
+              textDecoration: "underline"
+            }}
+          >
+            Deliveries
+          </p>
+          <p>
+            <b style={{ fontWeight: "bold", fontSize: "15px" }}>Successful : 80</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Unsuccessful: 10</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Pending: 20</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Total : 100</b>   
+          </p>
+        </div>
+        <div>
+        <p
+            style={{
+              marginTop: "5px",
+              textTransform: "uppercase",
+              textAlign: "center",
+              color: "#2E8B57",
+              fontSize: "18px",
+              textDecoration: "underline"
+            }}
+          >
+           Available Loading Types
+          </p>
+          <p>
+            <b style={{ fontWeight: "bold", fontSize: "15px" }}>Pallets: 15</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Boxes: 30</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>Total : 45</b>   
+          </p>
+        </div>
+        <div>
+        <p
+          style={{
+              marginTop: "5px",
+              textTransform: "uppercase",
+              textAlign: "center",
+              color: "#2E8B57",
+              fontSize: "18px",
+              textDecoration: "underline"
+            }}
+          >
+           Recent Entries
+          </p>
+          <p>
+            <p style={{ fontWeight: "bold", fontSize: "15px"  }}> Package numbers </p>
+            <b style={{ fontWeight: "bold", fontSize: "15px" }}>05050385839284822</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>079675763453330</b>
+            <br />
+            <b style={{ fontWeight: "bold", fontSize: "15px"  }}>06435456467664</b>   
+          </p>
+        </div>
       </div>
     );
   }

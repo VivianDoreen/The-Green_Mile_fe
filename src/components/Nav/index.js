@@ -105,9 +105,9 @@ const Nav = () => {
       </Container>
       <button
         style={{
-          marginTop: "8px",
-          backgroundColor: "green",
-          padding: "6px",
+          marginTop: "3px",
+          backgroundColor: "#2E8B57",
+          padding: "12px",
           borderRadius: "5px",
           border: "none"
         }}

@@ -34,6 +34,11 @@ const LoginNav = () => {
                 Contact
               </Link>
             </Menu.Item>
+            <Menu.Item>
+              <Link to="/track" className="navLinks">
+                Track your package
+              </Link>
+            </Menu.Item>
           </Menu>
         </Container>
       </div>

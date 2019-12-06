@@ -24,7 +24,7 @@ const Button = ({
               style={{
                 width: "90%",
                 padding: "5px",
-                backgroundColor: "#6ba701",
+                backgroundColor: "#2E8B57",
                 border: "none",
                 color: "#ffffff",
                 outline: "none",

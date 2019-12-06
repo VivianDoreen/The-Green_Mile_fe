@@ -6,7 +6,7 @@ class SelectedPackages extends React.Component {
       localStorage.getItem("selectedItems")
     );
     console.log(getSelectedPackages);
-    return <div id="main-section">Hello Viv</div>;
+    return <div id="main-section">Packages coming soon</div>;
   }
 }
 export default SelectedPackages;

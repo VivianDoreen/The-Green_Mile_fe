@@ -3,8 +3,8 @@ import React from "react";
 
 //components
 import LoaderLogin from "../LoaderLogin";
-import Logo from "../../images/logo-8-edited-color-v2.png";
-import bgImage from "../../images/tumblr_nt5uk4psl31ud7rr3o1_1280Edited-color-overlay.png";
+import Logo from "../../images/logo-8.png";
+import bgImage from "../../images/prof.jpg";
 
 const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
   const loginStyle = {
