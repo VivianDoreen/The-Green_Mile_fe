@@ -59,12 +59,15 @@ export function* fetchSupplierPackageRequest(action) {
 
 export function* fetchRecipientPackageRequest(action) {
   try {
-    const response = yield call(Api.fetchRecipientPackages);
-    console.log(response, "response");
+    const { search } = action.payload.recipientPackages;
+    console.log(search, "RRRRRRRRRR");
 
-    // yield put(fetchRecipientPackagesSuccess(response.data.message));
+    const response = yield call(Api.fetchRecipientPackages, search);
+    console.log(response.data.package[0], "response");
+
+    yield put(fetchRecipientPackagesSuccess(response.data.package[0]));
   } catch (error) {
-    console.log(error.response, "error.response");
+    console.log(error, "error.response");
     // yield put(fetchRecipientPackagesFailure(error.response));
   }
 }

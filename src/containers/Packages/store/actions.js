@@ -84,9 +84,10 @@ export const fetchSupplierPackagesFailure = error => {
   };
 };
 
-export const fetchRecipientPackagesRequest = () => {
+export const fetchRecipientPackagesRequest = recipientPackages => {
   return {
-    type: FETCH_RECIPIENT_PACKAGES_REQUEST
+    type: FETCH_RECIPIENT_PACKAGES_REQUEST,
+    payload: { recipientPackages }
   };
 };
 

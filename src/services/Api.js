@@ -41,8 +41,10 @@ export default class Api {
     return response;
   };
 
-  static fetchRecipientPackages = async () => {
-    const response = await axios.get("packages/recipient_packages");
+  static fetchRecipientPackages = async order_number => {
+    const response = await axios.get(
+      `https://greenmileapi.herokuapp.com/api/v1/filter/${order_number}`
+    );
     return response;
   };
 

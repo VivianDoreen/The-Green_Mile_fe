@@ -23,6 +23,7 @@ import PrivateRoute from "../PrivateRoute";
 import Loader from "../Loader";
 import About from "../../components/About";
 import Contact from "../../components/Contact";
+import Track from "../Track";
 import ViewSupplierPackages from "../ViewSupplierPackages";
 import Recipient from "../Recipient";
 import SelectedPackages from "../SelectedPackages";
@@ -43,6 +44,7 @@ const App = props => {
             <Route path="/" exact component={UserLogin} />
             <Route path="/about" exact component={About} />
             <Route path="/contact" exact component={Contact} />
+            <Route path="/track" exact component={Track} />
             <PrivateRoute path="/admin" component={AdminPage} />
             <PrivateRoute path="/register" component={RegisterUsers} />
             <PrivateRoute path="/packages" exact component={Packages} />

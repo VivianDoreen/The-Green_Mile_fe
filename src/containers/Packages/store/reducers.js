@@ -55,7 +55,7 @@ const packageReducer = (state = initialState, action) => {
       return {
         ...initialState,
         isLoading: false,
-        packageList: action.payload
+        packages: action.payload
       };
     case types.FETCH_RECIPIENT_PACKAGES_FAILURE:
       return {
