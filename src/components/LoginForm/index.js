@@ -4,7 +4,6 @@ import React from "react";
 //components
 import LoaderLogin from "../LoaderLogin";
 import Logo from "../../images/logo-8.png";
-import bgImage from "../../images/prof.jpg";
 
 const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
   const loginStyle = {
@@ -14,11 +13,6 @@ const LoginForm = ({ handleChange, handleSubmit, onLoading, errors }) => {
   return (
     <div
       className="loginBar"
-      style={{
-        backgroundImage: "url(" + bgImage + ")",
-        backgroundSize: "cover",
-        height: "655"
-      }}
     >
       {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <button

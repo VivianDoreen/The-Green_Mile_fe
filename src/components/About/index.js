@@ -2,16 +2,11 @@
 import React from "react";
 
 //image
-import bgImage from "../../images/prof.jpg";
 
 const About = () => {
   return (
     <div
       className="loginBar"
-      style={{
-        backgroundImage: "url(" + bgImage + ")",
-        backgroundSize: "cover"
-      }}
     >
       <div className="container">
         <div className="row">

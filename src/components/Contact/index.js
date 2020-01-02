@@ -1,16 +1,11 @@
 //react
 import React from "react";
 //images
-import bgImage from "../../images/prof.jpg";
 
 const Contact = () => {
   return (
     <div
       className="loginBar"
-      style={{
-        backgroundImage: "url(" + bgImage + ")",
-        backgroundSize: "cover"
-      }}
     >
       <div className="container">
         <div className="row">

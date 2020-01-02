@@ -19,7 +19,8 @@ color: white !important;
 }
 .page-footer {
 position:fixed;
-width: 100%;
+width: 98%;
+margin: 10px;
 bottom:0;
 left:0;
 background-color: #2E8B57 !important;
@@ -200,4 +201,10 @@ text-align: center;
 .form-label-group input:-ms-input-placeholder {
   color: #777;
 }
+}
+@media only screen and (max-width: 767px) {
+.card-signin{
+  bottom: 2.5rem;
+  }
+
 }

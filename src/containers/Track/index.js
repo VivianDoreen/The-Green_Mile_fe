@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { fetchRecipientPackagesRequest } from "../../containers/Packages/store/actions";
 
 //image
-import bgImage from "../../images/prof.jpg";
 import "../../styles/components/Track.scss";
 
 //selectors
@@ -35,15 +34,11 @@ class Track extends React.Component {
     this.props.fetchRecipientPackagesRequest(data);
   };
   render() {
-    console.log(this.props.packages, "PAckages");
+    console.log(this.props.packages, "Packages");
 
     return (
       <div
         className="loginBar"
-        style={{
-          backgroundImage: "url(" + bgImage + ")",
-          backgroundSize: "cover"
-        }}
       >
         <form className="example" onSubmit={this.handleSubmit}>
           <input
@@ -53,13 +48,17 @@ class Track extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit">
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
           </button>
         </form>
         {Object.keys(this.props.packages) != 0 ? (
-          <p>{this.props.packages["package_name"]}</p>
+         <div> <p>{this.props.packages["package_name"]}</p>
+          <p>{this.props.packages["delivery_status"]}</p>
+          <p>{this.props.packages["date_registered"]}</p>
+          <p>{this.props.packages["hub_address"]}</p>
+          <p>{this.props.packages["delivery_date"]}</p></div>
         ) : (
-          ""
+          "not found"
         )}
         <footer className="page-footer font-small indigo">
           <div className="container text-center text-md-left"></div>

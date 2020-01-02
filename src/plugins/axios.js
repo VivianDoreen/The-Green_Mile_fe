@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://greenmileapi.herokuapp.com/api/v1/"
+  baseURL: "http://127.0.0.1:5000/api/v1/"
 });
 
 axiosClient.interceptors.request.use(request => {
