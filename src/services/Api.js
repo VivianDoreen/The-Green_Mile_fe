@@ -43,7 +43,7 @@ export default class Api {
 
   static fetchRecipientPackages = async order_number => {
     const response = await axios.get(
-      `https://greenmileapi.herokuapp.com/api/v1/filter/${order_number}`
+      `http://127.0.0.1:5000/api/v1/filter/${order_number}`
     );
     return response;
   };

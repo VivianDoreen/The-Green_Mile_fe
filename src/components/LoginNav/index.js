@@ -11,14 +11,8 @@ import "../../styles/components/nav.scss";
 const LoginNav = () => {
   return (
     <div className="grid-container-nav">
-      <div
-        style={{
-          height: "50px",
-          backgroundColor: "#2E8B57"
-        }}
-      >
-        <Container className="navContainer">
-          <Menu stackable>
+        <Container>
+          <Menu stackable borderless>
             <Menu.Item>
               <Link to="/" className="navLinks">
                 Home
@@ -42,7 +36,7 @@ const LoginNav = () => {
           </Menu>
         </Container>
       </div>
-    </div>
+  
   );
 };
 

@@ -1,9 +1,4 @@
-.navContainer {
-  display: flex;
-  margin-left: 0px;
-  // margin-bottom: 20px;
-  float: left;
-}
+
 .navLinks {
   color: #ffffff;
   font-size: 16px;
@@ -11,7 +6,15 @@
 }
 .navLinks:hover {
   color: #000000;
+  text-decoration: none;
 }
 .ui.stackable.menu {
   background-color: #2e8b57 !important;
+  padding: 0px 50px 0px 50px;
+  top: 0;
+  width: 100%;
+}
+
+.ui.container{
+  display:inline !important;
 }
